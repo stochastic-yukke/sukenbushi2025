@@ -4,3 +4,5 @@
 <!-- PDF_LINK_START -->
 <!-- 同等の内容のブログをMathlogで投稿しています：[1年生の夢を追って類体論の頂を望む](https://mathlog.info/series/c5HX6XWmIQ2vZ4acykxZ) -->
 <!-- PDF_LINK_END -->
+
+2025/08/25: 1,2回目の更新
