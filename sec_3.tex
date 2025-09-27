@@ -1,0 +1,410 @@
+\section{素数の分解に潜む機序}\label{ruitai_game}
+これから紹介する内容は，かの有名なDavid Hilbertや高木貞治，Emil Artinらに端を発する\textbf{類体論}という分野の一断片である。そこまで深掘りすることはしないし，\textbf{美味い部分だけ紹介するために一部正確性を犠牲にしたので，興味を持った人はぜひ調べてみて欲しい}。また，ここからの節\ref{ruitai_game},\ref{hekiraku}を通して読むには，代数学の知識がある程度必要になってしまう(ただし，その都度補足するし，完全に理解せず飛ばしながら読んでも雰囲気が伝わるように心がけている)し，長い旅路となるから，その点覚悟してほしい。
+
+フロベニウス写像の奏でる旋律は，類体の世界を拓く。Fermatに遡ろう。フェルマーの小定理ではなく，フェルマーの二平方和定理だ。
+
+\begin{thm}[\textbf{二平方和定理}]
+    奇素数$p$が$x,y\in \mathbb{Z}$により$p=x^2+y^2$と表せるのは，$p=2$または$p\equiv 1 \pmod{4}$の時，かつその時に限る．
+\end{thm}
+
+この定理は，初等的に示すこともできるが，少々技巧的なので扱わない。
+
+実は，一般に$p=x^2+ny^2$というような式が成り立つ条件は，しばしばmodで与えられる。その数学的な背景について，興味深い事象が観測できる。
+
+\subsection{素数を分解してみる}
+\textbf{素数分解の稜線を辿っていく------。}
+
+\vspace{10pt}
+
+$p=x^2+ny^2$の意味を考え直してみよう。いきなりだが，
+\begin{equation}\label{break_down}
+    p=x^2+ny^2=(x+y\sqrt{-n})\times (x-y\sqrt{-n})
+\end{equation}
+と`分解'することを考えることから始める。
+
+\vspace{10pt}
+
+\begin{dfn}
+    整数$n$に対して，$\mathbb{Z}[\sqrt{n}]=\{a+b\sqrt{n} \mid a,b \in \mathbb{Z}\}$とする．
+\end{dfn}
+
+$p=x^2+ny^2$が成り立つことは，$\mathbb{Z}[\sqrt{-n}]$において式\eqref{break_down}のような$p$の分解が存在することと対応していることがわかる。分解を考えるのだから，この$\mathbb{Z}[\sqrt{n}]$でも，素因数分解的なことができたら嬉しい。できるだろうか。例を見てみよう：
+
+\begin{mybox}[{$\mathbb{Z}[\sqrt{-1}]$}]
+    $\mathbb{Z}$においては，5は素数で，これ以上素因数分解できないが，$\mathbb{Z}[\sqrt{-1}]$では，$5=\left(2+\sqrt{-1}\right)\left(2-\sqrt{-1}\right)$となり，分解できる．5は素数にあたるものではない．
+
+    一方で，3や7は，$\mathbb{Z}[\sqrt{-1}]$においてもこれ以上``素因数分解''できないため，素数にあたるものであるといえる．
+\end{mybox}
+
+\begin{mybox}[{$\mathbb{Z}[\sqrt{-13}]$}]
+    $\mathbb{Z}$では，14は$2\times 7$と一意に分解するが，$\mathbb{Z}[\sqrt{-13}]$においては，$14=2\times 7=(1+\sqrt{-13})(1-\sqrt{-13})$と二通りに分解してしまう。``素因数分解''が一意ではないのだ！！
+\end{mybox}
+
+上の例からわかるように，一般に，整数の世界を$\sqrt{n}$によって拡げただけで，\textbf{整数論の基本定理}なる異名さえも持つ，素因数分解の一意性が瓦解してしまうのだ\footnote{ラメという数学者が「フェルマーの最終定理を解いた」と言い出したが，その証明において，整数を拡大した世界で素因数分解の一意性を仮定してしまっており，証明が台無しになった，という有名な話もある。}。
+
+ところで，二個目の例で出てきた二通りの分解が，本質的に異なることを示すにはどうするのだろうか。ここで，$\alpha=a+b\sqrt{n}$に対し，$\boldsymbol{N(\alpha)=a^2+b^2}$とし，これを$\alpha$の\textbf{ノルム}と呼ぶことにする。実は，このノルムが違いによって分解の違いを示すことができる：$N(2)=4, N(7)=49$であるのに対し，$N(1\pm\sqrt{-13})=14$であり，二つの分解は同じものではない，とわかる。
+
+素因数分解の一意性は，「素数$p$が整数$a, b$の積$ab$を割り切るなら，$p$は$a$と$b$の少なくとも1方を割り切る」という性質から示せるのだが，この性質は一般に$\mathbb{Z}[\sqrt{n}]$では成り立たない。したがって，次の定義が必要になる：
+
+\begin{dfn}
+    $\alpha\in\mathbb{Z}[\sqrt{n}]$とする．「$\alpha=\beta\gamma\,\left(\beta, \gamma\in\mathbb{Z}[\sqrt{n}]\right)$と表せるならば，$\beta$は1を割り切る，または$\gamma$は1を割り切る」をみたすとき，$\alpha$を\textbf{既約元}という．「$\alpha$が$\beta\gamma\left(\beta, \gamma\in\mathbb{Z}[\sqrt{n}]\right)$を割り切るならば，$\alpha$は$\beta$と$\gamma$の少なくとも一方を割り切る」をみたすとき，$\alpha$は\textbf{素元}という．
+\end{dfn}
+
+1を割り切るものというのは，$\mathbb{Z}[\sqrt{-1}]$においては$\pm 1, \pm\sqrt{-1}$であり，$\mathbb{Z}[\sqrt{-3}]$においては$\pm 1, \pm\frac{1\pm\sqrt{-3}}{2}$であり，それ以外の$n$では$\pm 1$のみである。
+
+また，素元は既約元である(この証明はそこまで難しくない)。一方で，必ずしも既約元は素元にはならない。この性質は後で使う。
+
+\vspace{10pt}
+
+$p=x^2+ny^2$が成り立つことは，$\mathbb{Z}[\sqrt{-n}]$において式\eqref{break_down}のような$p$の分解が存在することと対応していた。では，いつ\eqref{break_down}のような分解が存在するのだろうか。それを知るために初等整数論の事実(知っている人も多いだろう)を使う。
+
+\begin{dfn}[平方剰余]
+    $p$を素数とし，$a\in\mathbb{F}_p$は0でない元とする．$x$についての方程式$x^2=a$が$\mathbb{F}_p$で整数解をもつとき，$a$は$p$の\textbf{平方剰余}であるという．
+\end{dfn}
+
+\begin{dfn}[Legendreの記号]
+    $p$を奇素数，$a$を$p$で割り切れない整数とするとき，次のように\textbf{ルジャンドルの記号}を定義する．
+    \begin{equation*}
+        \left(\frac{a}{p}\right)=
+        \begin{cases*}
+            1&$a$が$p$の平方剰余のとき,\\
+            -1&otherwise
+        \end{cases*}
+    \end{equation*}
+\end{dfn}
+
+\begin{dfn}[位数，原始根]\label{def_genshikon}
+    $p$を素数とする．$\mathbb{F}_p$において，$x^m=1$となる最小の正整数$m$を法$p$における$x$の\textbf{位数}と呼ぶ．また，$\mathbb{F}_p$において，整数$u$の位数が$p-1$である，すなわち$p-1$乗してはじめて$u$が1になるとき，$u$を$p$の\textbf{原始根}という．
+\end{dfn}
+
+証明はしないが，任意の素数$p$に対して原始根は存在する。また，次の2つの補題も重要だが，証明は省く。
+
+\begin{prop}[原始根の性質]
+    $u$を$\mathbb{F}_p$における原始根とすると，$p-1$個の元$1,u,u^2,\ldots,u^{p-2}$は$\mathbb{F}_p$の0でないすべての元を1つずつ与える．つまり，原始根は，群$\mathbb{F}_p^{\times}=\{1,u,u^2,\ldots,u^{p-2}\}$の生成元である．
+\end{prop}
+
+\begin{prop}[原始根と平方剰余の関係]\label{genshi_joyo}
+    $p$を奇素数とし，$g$を$p$の原始根とすると，$p$と互いに素な整数$a$に対して$a\equiv g^k\pmod{p}$をみたす整数$k$をとれば，\[
+    \left(\frac{a}{p}\right)=(-1)^k
+    \]
+    となる．すなわち，$a$が$p$の平方剰余あることと$k$が偶数であることは同値である．
+\end{prop}
+
+\begin{lemma}[Eulerの規準，平方剰余の第一補充法則]\label{hojyu_joyo}
+    $p$を奇素数，$a$を$p$で割り切れない整数とするとき，
+    \begin{equation*}
+        \left(\frac{a}{p}\right)\equiv a^{\frac{p-1}{2}}\mod{p}
+    \end{equation*}
+    である(\textbf{オイラーの規準})．特に，$\left(\frac{-1}{p}\right)=(-1)^{\frac{p-1}{2}}$，つまり$p$が4で割って1余る素数であることと$-1$が$p$の平方剰余であることとは同値である(\textbf{平方剰余の第一補充法則})．
+\end{lemma}
+
+以下の補題\ref{hojyu_joyo}の証明では$\mathbb{F}_p$において考える。
+
+\begin{prf}
+    $g$を$p$の原始根とし，$b=g^{\frac{p-1}{2}}$とする．フェルマーの小定理より，$b$は$x^2-1=0$の解となる．$0=b^2-1=(b-1)(b+1)$であるから，$b=\pm 1$となる(本当に$(b-1)(b+1)=0$の解は1と$-1$のみだろうか？)．$g$は位数$p-1$の元だから，$b=-1$でなければならない．ここで，$a=g^k$となる整数$k$をとれば，補題\ref{genshi_joyo}より，\[
+    \left(\frac{a}{p}\right)=(-1)^k=b^k=(g^k)^{\frac{p-1}{2}}=a^{\frac{p-1}{2}}
+    \]
+    となる．
+\end{prf}
+
+それでは，$n=1$の場合，つまり冒頭の二平方和定理を考えよう。すなわち，分解$p=(x+y\sqrt{-1})\times(x-y\sqrt{-1})$が存在する条件を考えるのである。
+
+ここで注目して欲しいのは，二平方和定理の主張の中の「$p\equiv 1\mod{4}$」と，オイラーの規準(補題\ref{hojyu_joyo})の主張の中の「$p$が4で割って1余る素数であることと$-1$が$p$の平方剰余であることとは同値」との対応だ。いずれも4を法として$p$が1に合同であることが内容として含まれている。実際に，二平方和定理の証明には，オイラーの規準を使うことができる：
+
+\begin{prf}
+    $p=2$のときは，$p=1^2+1^2$である．$p\equiv 1\pmod{4}$とする．平方剰余の第一補充法則より，$x^2+1\equiv 0\mod{p}$を満たす整数$x$が存在する．ここで，$x^2+1=(x+\sqrt{-1})(x-\sqrt{-1})$に注目すると，左辺は$p$で割り切れるのに対し，右辺の二つの因子はどちらも$p$で割り切れない．したがって，$p$は素元ではない．素元は既約元でもあったから，1を割り切らない$a+b\sqrt{-1}, c+d\sqrt{-1}\in\mathbb{Z}[\sqrt{-1}]$が存在して，$p=(a+b\sqrt{-1})(c+d\sqrt{-1})$となる．ノルムを考えると，$p^2=(a^2+b^2)(c^2+d^2)$であるが，$a+b\sqrt{-1}, c+d\sqrt{-1}$は1を割り切らないから，$a^2+b^2>1,\, c^2+d^2>1$である．よって，$p=a^2+b^2=c^2+d^2$としかなり得ない．
+
+    逆に，$p\ne 2$かつ$p=a^2+b^2\left(a,b\in\mathbb{Z}\right)$とする．このとき，$a, b$のいずれかが偶数でもう一方が奇数である．$a=2c,\, b=2d+1\left(c, d\in\mathbb{Z}\right)$としてよい．すると，$p=a^2+b^2=4(c^2+d^2+d)+1\equiv 1\pmod{4}$である．
+\end{prf}
+
+この証明で注目すべき点は2つある：
+
+\begin{enumerate}
+    \item $p$「が」分解するかどうか，というのが法$p$「で」$x^2+1$が分解するかどうか，というのに帰着されている点。これは，\textbf{ガウスの黄金定理}との呼び名を持つ\textbf{平方剰余の相互法則}「奇素数$p, q$に対して，$\left(\frac{p}{q}\right)\left(\frac{q}{p}\right)=(-1)^{\frac{p-1}{2}\frac{q-1}{2}}$」を感じさせる($p$が割られる役割から割る役割に移っている点)が，実際に，のちの類体論にも繋がる感覚である。
+    \item $-1$の平方剰余を考える上で，根として$-1$を持つ「多項式」$x^2+1$を考え，因数分解した点。これも，より抽象的な議論をする際に「最小多項式」というものを考えるため，注目に値する。
+\end{enumerate}
+
+$p=x^2+2y^2$と表せる条件や$p=x^2-2y^2$と表せる条件，$p=x^2+xy+y^2$と表せる条件，など色々考えられるが，いま二平方和定理について考えたのと同じように扱うことができてしまう。すなわち，オイラーの規準をはじめとする平方剰余に関する命題を用いて，$\mathbb{Z}$を広げた世界での\textbf{素数の分解のしかた}を考えるのである。
+
+\subsection{理想の数を求めて}
+\textbf{遠く下界を捉え，細い岩場を進む------。}
+
+\vspace{10pt}
+
+素数の分解を考える際に，素因数分解の一意性が成り立たないのでは話がややこしくなる。そこで，どうにか一意に分解する方法を考えられないものか。そこで妙案を提示したのがErnst Kummerである。Kummerの考えたアイデアは次のとおりだ：
+
+\begin{mybox}[クンマーのIdea]
+    Kummerのアイデアは一言で言えば，``より細かく分解しよう''ということである。例えば，上の方で取り上げた$\mathbb{Z}[\sqrt{-13}]$における209の分解を再考しよう：209の規約因子11,19について，さらに\[
+    11=\mathfrak{p}_1\mathfrak{p}_2, 19=\mathfrak{p}_3\mathfrak{p}_4
+    \]と分解できると想定し，その積の組合せを取り替えることで，\[
+    14+\sqrt{-13}=\mathfrak{p}_1\mathfrak{p}_3, 14-\sqrt{-13}=\mathfrak{p}_2\mathfrak{p}_4
+    \]というふうにもできる，と捉え直すのである。このようにすれば，互いに真に異なる既約元分解であっても，有限個の`より細かい因子' $\mathfrak{p}_i$により一意に分解されている，と考える思想だ。Kummerは，上記のような`より細かい因子'の積で表される数を\textbf{理想数}(\ruby{ideale}{イデアル} \ruby{Zahl}{ツァール})と呼ぶ。
+\end{mybox}
+
+ちなみに，謎の$p$みたいな文字$\mathfrak{p}$は，フラクトゥーア(ドイツ文字)という文字で，英語の\ruby{p}{ピー}にあたるものだが，神聖ローマ帝国での出版事業に端を発し，第二次世界大戦頃までドイツで使われていたなどの背景から，「ペー」とドイツ語読みすることが多い。他に，\ruby{$\mathfrak{a}$}{アー}，\ruby{$\mathfrak{b}$}{ベー}，\ruby{$\mathfrak{q}$}{クー}など。
+
+ところで，初等整数論においては必ずと言って良いほど触れられる命題がある：
+\begin{prop}
+    整数$a, b$に対して，$ax+by=\mathrm{GCD}(a, b)$を満たす整数$x, y$が存在する．ただし，$\mathrm{GCD}(a ,b)$は$a$と$b$の最大公約数を表す．
+\end{prop}
+ここで，$(n)=\left\{nx\mid x\in\mathbb{Z}\right\}$，$(n, m)=\left\{nx+my\mid x, y\in\mathbb{Z}\right\}$とする。すると，上記命題は，$(a, b)=(\mathrm{GCD}(a, b))$と表現できる。このように数の集合として捉えることは，整数論における勘所である。というわけで，$(n)$や$(n, m)$といった集合の性質をうまいこと抽象したものとして，Dedekindによるイデアルという概念が登場する：
+
+\begin{dfn}[イデアル]
+    次の性質を満たす可換環\footnote{一般の環においては，性質2.の$c$と$x$の積の順序を交換した主張は，性質2.と異なるものとなる。これは話がややこしくなるし，非可換である必要が今のところないので，これ以降可換環ばかり登場する。}$R$の非空な部分集合$I$を\textbf{イデアル}と呼ぶ：
+    \begin{enumerate}
+        \item $\forall x, y\in I,\; x+y\in I$.
+        \item $\forall x\in I,\; \forall c\in R,\; cx\in I$.
+    \end{enumerate}
+\end{dfn}
+実はこのイデアルこそが，Kummerの理想数のアイデアを現実的に実現したものに他ならないのだが，まずは，イデアルそのものについて考えよう。
+
+\{0\}や$R$自身はイデアルであり，自明なイデアルという。
+
+$\alpha_1, \alpha_2,\ldots,\alpha_r\in R$に対して，\[
+(\alpha_1, \alpha_2,\ldots,\alpha_r)\coloneqq \{\alpha_1\gamma_1+\cdots+\alpha_r\gamma_r\mid \gamma_i\in R\}\subset R
+\]はイデアルで，\textbf{$\boldsymbol{\alpha_1,\ldots,\alpha_r}$(または$\boldsymbol{\left\{\alpha_1,\ldots,\alpha_r\right\}}$)で生成される($R$の)イデアル}と呼ぶ。特に，$\alpha\in R$の``倍数''の集合$(\alpha)$はイデアルで，\textbf{$\alpha$(または$\{\alpha\}$)が生成する単項イデアル}と呼ぶ。私の記事では，イデアルはすべて，ある有限個の元により生成されるものとする(実際，これ以降，そのようなイデアルしか扱う必要がない)。
+
+\begin{dfn}[イデアルが生成するイデアル]
+    $A$が環$B$の部分環で，$I\subset A$をイデアルとする時，$I$で生成される$B$のイデアルを$IB$とかく．特に，$I$が$(\alpha)$という単項イデアルである時，$\alpha B$とかく．
+\end{dfn}
+
+ここで，イデアルの積について考えてみよう。イデアル$\mathfrak{a}=(\alpha_1,\ldots,\alpha_r)$の元$\alpha=\sum_{i=1}^{r}\alpha_i\xi_i$と，$\mathfrak{b}=(\beta_1,\ldots,\beta_r)$の元$\beta=\sum_{i=1}^{s}\beta_i\eta_i$に対して，\[
+\alpha\beta=\sum_{i=1}^{r}\sum_{j=1}^{s}\alpha_i\beta_i\xi_i\eta_i\in(\alpha_1\beta_1,\alpha_1\beta_2,\ldots,\alpha_i\beta_j,\ldots,\alpha_r\beta_s)
+\]であるから，\textbf{積$\mathfrak{a}\mathfrak{b}$は，$\boldsymbol{\alpha_i\beta_j\,(1\leqq i\leqq r,\; 1\leqq j\leqq s)}$で生成されるイデアルとして定義する}のがよく，そのように定義する。
+
+さらに，素イデアルという，素元の対応物を考えるために，イデアルどうしの整除を定義する：$\alpha$が$\beta$を割り切る$\iff \exists\gamma\in R,\; \beta=\alpha\gamma \iff (\alpha)\supseteq (\beta)$ということから，\textbf{$\mathfrak{a}$が$\mathfrak{b}$を割り切る$\boldsymbol{\xLeftrightarrow{\mathrm{def}}}\mathfrak{a}\supseteq\mathfrak{b}$}ということにする。すると，「素イデアル」が定義できる：
+
+\begin{dfn}[素イデアル]
+    環$R$のイデアル$\mathfrak{p}$が次の性質を満たすとき，$\mathfrak{p}$は\textbf{素イデアル}である，という：$\mathfrak{p}$が$\mathfrak{ab}$を割り切るならば，$\mathfrak{p}$は$\mathfrak{a},\, \mathfrak{b}$の少なくとも一方を割り切る。
+\end{dfn}
+
+以上の準備のもと，上の「クンマーのIdea」で紹介した思想が，イデアルについて達成されていることを確認しよう。つまり，素因数分解もとい，素イデアル分解について考えるのだ。まずは，積の組合わせの取替えによって，複数の相異なる既約元分解を復元できる，ということについて：
+
+\begin{mybox}[既約元分解の復元]
+    $\mathbb{Z}[\sqrt{-13}]$において，209の素イデアルによる分解を考える。$\mathfrak{p}_1=(11,14+\sqrt{-13}),\; \mathfrak{p}_2=(11,14-\sqrt{-13}),\; \mathfrak{p}_3=(19,14+\sqrt{-13}),\; \mathfrak{p}_4=(19,14-\sqrt{-13})$とおく。すると，$(\alpha,\beta)=(\alpha,\beta,\alpha\gamma),\; (\alpha,\beta)=(\alpha\pm\beta,\beta)$\,(定義から直ちにわかる)を用いて只管に式変形することで，
+    \begin{align*}
+        \mathfrak{p}_1\mathfrak{p}_2
+        &= \left(11^2,11\left(14-\sqrt{-13}\right),11\left(14+\sqrt{-13}\right),\left(14+\sqrt{-13}\right)\left(14-\sqrt{-13}\right)\right)\\
+        &= \cdots\\
+        &= \left(11\right)
+    \end{align*}
+    を得る(難しくないが面倒)。他も同様に，$\mathfrak{p}_3\mathfrak{p}_4=(19),\; \mathfrak{p}_1\mathfrak{p}_3=(14+\sqrt{-13}),\; \mathfrak{p}_2\mathfrak{p}_4=(14-\sqrt{-13})$となり，理想数を想定した際とまったく同様の結果となった。
+
+    このように，素イデアルの積の組合せによって，すべての既約元分解を復元できる。
+\end{mybox}
+
+続いて，分解の一意性：
+
+\begin{thm}[素イデアル分解，存在と一意性]\label{prime_ideal_break}
+    $\mathbb{Z}$を拡大した可換環\footnote{いま我々が考えている$\mathbb{Z}$に平方根を加えたものなどを想定しているが，正確には，「代数的整数環」あるいはより一般に「デデキント整域」と書くべきである。}$R$の非自明な任意のイデアル$\mathfrak{a}$は，素イデアルの積\[
+    \mathfrak{a}=\mathfrak{p}_1\mathfrak{p}_2\cdots\mathfrak{p}_r\, (\mathfrak{p}_i\text{は素イデアル})
+    \]の形で表される。この表現は，$\mathfrak{p}_1,\ldots,\mathfrak{p}_r$の順序の差異を除いて一意である。
+\end{thm}
+
+こうして，Kummerの理想はDedekindのイデアルという概念により達成された，ということがわかった。
+
+\subsection{素数分解の理論への準備}
+\textbf{近づいてきた素数分解の理論の高峰を目指して歩みを止めるな------。}
+
+\vspace{10pt}
+
+ここからは，群・環・体などの知恵を導入して，素数の分解の理論を紹介するが，いくつかの準備が必要である。
+
+\subsubsection{\texorpdfstring{$\mathbb{Z}[\sqrt{n}]$}{Z[sqrt{n}]}をちゃんと定義する}\label{zn_teigi}
+
+今まで$\mathbb{Z}[\sqrt{n}]$という集合を当たり前のように扱ってきたが，今一度しっかり定義しよう：
+
+ここで，二平方和定理の証明の後に書いた「注目すべき点」の2.を見てほしい。これから考える素数の分解の一般論においても，特定の根を持つ多項式を考えるとうまくいく可能性が高いのだろう，というモチベーションを持って考えていく。
+
+まず，$\mathbb{Z}$より一回り`大きい'$\mathbb{Q}$に数を加えることから考える。$\mathbb{Q}$係数の既約多項式の根となる数を$\alpha$とおき，$\mathbb{Q}(\alpha)$を，$\mathbb{Q}$を包含し$\alpha$を元として持つ最小の体とする。例えば，$\mathbb{Q}(\sqrt{-1})=\left\{x+y\sqrt{-1}\mid x,y\in\mathbb{Q}\right\}$，$\mathbb{Q}(\sqrt[3]{2})=\left\{x+y\sqrt[3]{2}+z\sqrt[3]{4}\mid x,y,z\in\mathbb{Q}\right\}$である。同様に，一般の体$K$に対して考えると，必ず$K(\alpha)$という体が存在することが知られている。
+
+ここで少し環と体についての用語などを整理しておこう：
+\begin{itemize}
+\item 体$K$に対して，上のようにして構成した体$K(\alpha)$を，$K$に$\alpha$を添加した体と呼ぶ。
+\item $\mathbb{Q}$と$\mathbb{Q}(\alpha)$のように，体$L$の部分環$K$が体であるとき，$K$は$L$の\textbf{部分体}，$L$は$K$の\textbf{拡大体}，$L/K$を\textbf{体の拡大}という。また，体の拡大$L/K$に対し，$L$を$K$上のベクトル空間とみた時の次元を$\boldsymbol{[L:K]}$と書き，$L$の$K$上の\textbf{拡大次数}という。例えば，$\mathbb{Q}(\sqrt{-1})=\left\{x+y\sqrt{-1}\mid x,y\in\mathbb{Q}\right\}$より，$[\mathbb{Q}(\sqrt{-1})/{\mathbb{Q}}]=2$，$\mathbb{Q}(\sqrt[3]{2})=\left\{x+y\sqrt[3]{2}+z\sqrt[3]{4}\mid x,y,z\in\mathbb{Q}\right\}$より，$[\mathbb{Q}(\sqrt[3]{2})/{\mathbb{Q}}]=3$である。$[L:K]=d\in\mathbb{Z}^{+}$であるとき，$L/K$は\textbf{$d$次拡大}であるという。
+\item $\mathbb{Q}$の拡大体は必ず$\mathbb{Q}(\alpha)$の形であり，これを\textbf{代数体}という。
+\item 環$R$に対して$R$係数多項式で変数を$x$とするもの全体を$\boldsymbol{R[x]}$とかく。
+\item 体の有限次拡大$L/M,\; M/K$に対して，$[L:K]=[L:M][M:K]$が成立する。
+\end{itemize}
+
+それでは，代数体を土台にして，うまいこと多項式を扱えるような$\mathbb{Z}$を拡大した集合を考えよう：
+
+\begin{dfn}[最小多項式]
+    $\alpha\in\mathbb{C}$を根に持つ次数が最小の$\mathbb{Q}$係数モニック$\in\mathbb{Q}[x]$を，\textbf{$\mathbb{Q}$上の最小多項式}と呼ぶ．一般に，体$K$に対して，$\alpha\in\mathbb{C}$を根に持つ次数が最小の$K$係数モニックを，\textbf{$K$上の最小多項式}と呼ぶ．$\alpha\in\mathbb{C}$の最小多項式を$\boldsymbol{\phi_{\alpha}(x)}$と書くことにする．
+\end{dfn}
+
+\begin{dfn}
+    $K=\mathbb{Q}(\alpha)\, (\alpha\text{は}\mathbb{Q}\text{係数の既約方程式の解})$とする(つまり$K$は代数体)．このとき，\[
+    \mathcal{O}_K\coloneqq \left\{\beta\in K\mid \phi_{\beta}(x)\text{の係数はすべて整数}\right\}
+    \]とし，$\mathcal{O}_K$を$K$の\textbf{整数環}と呼ぶ．
+\end{dfn}
+
+この定義により，今まで濫用されてきた$\mathbb{Z}[\sqrt{n}]$を真っ当に扱えるようになった。詳しく調べてみよう：
+
+\begin{mybox}[$\mathbb{Q}(\sqrt{n})$の整数環]
+    \begin{enumerate}
+        \item $\mathcal{O}_{\mathbb{Q}(\sqrt{-1})}=\left\{\alpha\in\mathbb{Q}(\sqrt{-1})\mid \phi_{\alpha}(x)\text{の係数は全て整数}\right\}=\left\{a+b\sqrt{-1}\mid a,b\in\mathbb{Z}\right\}\eqqcolon \mathbb{Z}[\sqrt{-1}]$となる($\alpha=a+b\sqrt{-1}\in\mathbb{Q}(\sqrt{-1})$に対し，$\phi_{\alpha}(x)=x^2-2ax+(a^2+b^2)$がわかるから，$\phi_{\alpha}(x)$の係数がすべて整数$\Leftrightarrow 2a\in\mathbb{Z},\, a^2+b^2\in\mathbb{Z}\Leftrightarrow a,b\in\mathbb{Z}$となり，二個目の等号が成立)。この例から分かるように，$\mathbb{Z}[\alpha]$とは，$\mathbb{Z}$を包含し，$\alpha$を元として持つ最小の環のこと\footnote{明示的に表すのであれば，$\mathbb{Z}[\alpha]=\left\{f(\alpha)\mid f(x)\in\mathbb{Z}[x]\right\}$と定義するのがよい。同様に，$\mathbb{Q}(\alpha)=\left\{f(\alpha)\mid f(x)\in\mathbb{Q}[x]\right\}$である。}である。
+        \item 同様に，$\mathcal{O}_{\mathbb{Q}(\sqrt{2})}=\left\{a+b\sqrt{2}\mid a,b\in\mathbb{Z}\right\}=\mathbb{Z}[\sqrt{2}]$, \\$\mathcal{O}_{\mathbb{Q}(\sqrt[3]{2})}=\left\{a+b\sqrt[3]{2}+c\sqrt[3]{4}\mid a,b,c\in\mathbb{Z}\right\}=\mathbb{Z}[\sqrt[3]{2}]$となる。
+        \item ところが\dots\dots$\mathcal{O}_{\mathbb{Q}(\sqrt{-3})}=\left\{\alpha=a+b\sqrt{-3}\in\mathbb{Q}(\sqrt{-3})\mid \phi_{\alpha}(x)\text{の係数はすべて整数}\right\}=\left\{a+b\sqrt{-3}\mid 2a\in\mathbb{Z},\, a^2+3b^2\in\mathbb{Z}\right\}$となるが，$\frac{\pm 1+\sqrt{-3}}{2}$という数が$2a\in\mathbb{Z},\, a^2+3b^2\in\mathbb{Z}$を満たすから，$\mathcal{O}_{\mathbb{Q}(\sqrt{-3})}=\left\{a+b\frac{1+\sqrt{-3}}{2}\mid a,b\in\mathbb{Z}\right\}=\mathbb{Z}\left[\frac{1+\sqrt{-3}}{2}\right]$となる!
+        \item より一般に，平方因子を持たない$n$に対し$K=\mathbb{Q}(\sqrt{n})$を考えると，
+        \begin{equation*}
+            \mathcal{O}_K=
+            \begin{cases*}
+                \mathbb{Z}[\sqrt{n}]&($n\not\equiv 1\pmod{4}$のとき),\\
+                \mathbb{Z}[\frac{1+\sqrt{n}}{2}]&(otherwise).
+            \end{cases*}
+        \end{equation*}
+    \end{enumerate}
+\end{mybox}
+
+ちなみに，$\mathbb{Q}$に対して小括弧($\cdot$)を使い，$\mathbb{Z}$に対して大括弧[$\cdot$]を使うのは，環と体を区別するためである($\mathbb{Q}(\alpha)$は体，$\mathbb{Z}[\alpha]$は環)。
+
+\subsubsection{キホンの同型}
+環準同型定理を扱う。
+
+ここで注意しておきたいのは，可換環$R$とその部分集合$I$に対し，剰余群のように$R/I$という\textbf{環の剰余が定義できるためには，$I$が$R$のイデアルでなければならない}，ということである。加法について$R$を群，$I$をその部分群とみなしたとき，$R$は可換より$I$は正規部分群となるから，可換な剰余群$R/I$を定義できる。$x$を代表元とする可換な剰余群$R/I$の同値類を$x+I$と書き，具体的に，$(x+I)(y+I)=xy+I,\, (x+I)+(y+I)=x+y+I$というwell-definedな演算を定義すると剰余環$R/I$を構成でき，剰余環もまた可換環となる。
+
+環準同型の核は始集合のイデアルであることが示せるから，以下の定理で登場する剰余環$R/{\mathrm{Ker}(f)}$はwell-definedである：
+
+\begin{thm}[環の第一同型定理]
+    可換環の準同型写像$f:R\rightarrow S$は環同型写像\[
+    \pi:R/\mathrm{Ker}(f)\ni x+\mathrm{Ker}(f)\mapsto f(x)\in\mathrm{Im}(f)
+    \]を誘導する．
+\end{thm}
+
+\begin{thm}[イデアルの対応定理]
+    $I$を可換環$R$の非自明なイデアル，$f:R\rightarrow R/I$を自然な射影とする．$R/I$のイデアル全体の集合を$\mathbb{X}$，$I$を含む$R$のイデアル全体の集合を$\mathbb{Y}$とするとき，\[
+    \pi:\mathbb{X}\ni J'\mapsto f^{-1}(J')\in\mathbb{Y},\;\; \psi:\mathbb{Y}\ni J\mapsto f(J)\in\mathbb{X}
+    \]は互いに逆写像であり，したがって，$\mathbb{X,Y}$は集合として1対1に対応する．
+\end{thm}
+
+\begin{thm}[環の第三同型定理]
+    可換環$R$とイデアル$\mathfrak{a}\subset\mathfrak{b}\subsetneqq R$について，自然な準同型$f:R/{\mathfrak{a}}\ni x+\mathfrak{a}\mapsto x+\mathfrak{b}\in R/{\mathfrak{b}}$は，（第一同型定理から）同型$R/{\mathfrak{b}}\cong (R/{\mathfrak{a}})(\mathfrak{b}/{\mathfrak{a}})$を誘導する．
+\end{thm}
+
+再び二平方和定理の直後の「注目すべき点」の2.を顧み，多項式に着目するとうまくいきそうである，ということを思い出そう。
+
+ここで，$f(x)\mapsto f(\alpha)$という代入操作を写像として考える。\ref{zn_teigi}の「$\mathbb{Q}(\sqrt{n})$の整数環」の脚注に書いたことを参考にしてもらえば，この代入操作が環の全射準同型$\mathbb{Q}[x]\rightarrow \mathbb{Q}(\alpha)$を与えることがわかると思う。この写像の核を考える：
+\begin{quote}
+    $f(\alpha)=0$をみたす$f(x)\in\mathbb{Q}[x]$を$\phi_{\alpha}(x)$で割った剰余を$r(x)$とする。このとき，$\phi_{\alpha}$の次数は$r$の次数より大きく，$r(\alpha)=0$であるから，$\phi_{\alpha}(x)$が最小多項式であることとあわせて$r(x)=0$を得る。したがって，$f(x)\in(\phi_{\alpha}(x))$となり，代入操作の写像の核は$\phi_{\alpha}(x)$で生成される単項イデアルである。
+\end{quote}
+よって，第一同型定理より，同型
+\begin{equation}\label{dokei_sp}
+    \mathbb{Q}[x]/(\phi_{\alpha}(x))\cong \mathbb{Q}(\alpha)
+\end{equation}
+を得る。このような最小多項式を絡めた同型は後々大切になってくる。
+
+\subsubsection{イデアルについての中国式剰余定理}
+初等整数論または$\mathbb{Z}/{m\mathbb{Z}}$における中国式剰余定理(CRT)を知っている人は多いと思うが，より一般のイデアルに対してのCRTを紹介する。
+
+\begin{dfn}
+    可換環$R$のイデアル$\mathfrak{a,b}$の和$\mathfrak{a+b}\coloneqq \left\{a+b\mid a\in\mathfrak{a},b\in\mathfrak{b}\right\}$が$R$に等しい時，$\mathfrak{a}$と$\mathfrak{b}$は互いに素であるという．
+\end{dfn}
+
+\begin{thm}[CRT]
+    可換環$R$の有限個のイデアル$\mathfrak{a}_1,\mathfrak{a}_2,\ldots,\mathfrak{a}_s$がどの2つも互いに素であるとする時，自然な射影の集まり$R\ni x\mapsto (x+\mathfrak{a}_i)_{1\leqq i\leqq s}\in\prod_{i=1}^{s}R/{\mathfrak{a}_i}$により，環同型$R/{\mathfrak{a}_1\cdots\mathfrak{a}_s}\cong\prod_{i=1}^{s}R/{\mathfrak{a}_i}$が誘導される．
+\end{thm}
+
+代数体$K$の整数環$\mathcal{O}_K$に対し，素数$p$が生成する$\mathcal{O}_K$の単項イデアル$p\mathcal{O}_K$が\[
+p\mathcal{O}_K=\mathfrak{p}_1^{e_1}\mathfrak{p}_2^{e_2}\cdots\mathfrak{p}_r^{e_r}\,(\mathfrak{p}_1,\ldots,\mathfrak{p}_r\text{は}\mathcal{O}_K\text{の相異なる素イデアル})
+\]というふうに素イデアル分解される時，
+\begin{equation}\label{crt_apply}
+\mathcal{O}_K/{p\mathcal{O}_K}\cong \prod_{i=1}^{r}\mathcal{O}_K/{\mathfrak{p}_i^{e_i}}
+\end{equation}
+となる。このように，$\mathcal{O}_K/{p\mathcal{O}_K}$は，$p\mathcal{O}_K$の素イデアル分解，したがって$p$の$\mathcal{O}_K$における分解の様子を反映している。
+
+\subsection{素数を分解してみるin平方根を添加した世界}
+\textbf{ピークを越えてどこまでも------。}
+
+\vspace{10pt}
+
+$K=\mathbb{Q}(\sqrt{n})$\, ($n\in\mathbb{Z}\setminus\left\{0,1\right\}$は平方因子を含まない)の整数環での素数の分解を考えよう。
+
+ここで，\[
+\alpha_n\coloneqq
+\begin{cases*}
+    \frac{1+\sqrt{n}}{2}&($n\equiv 1\pmod{4}$のとき),\\
+    \sqrt{n}&($n\not\equiv 1\pmod{4}$のとき)
+\end{cases*}
+\]とすると，$\mathcal{O}_K=\mathbb{Z}[\alpha_n]$となる(\textit{c.f}: \ref{zn_teigi}の「$\mathbb{Q}(\sqrt{n})$の整数環」のところ)。また，体上の最小多項式と同様にして定義される\textbf{$\mathbb{Z}$上の$\alpha_n$の最小多項式}$\in\mathbb{Z}[x]$について，\[
+\phi_{\alpha_n}(x)=
+\begin{cases*}
+    x^2-x-n'&($n\equiv 1\pmod{4}$のとき),\\
+    x^2-n&($n\not\equiv 1\pmod{4}$のとき)
+\end{cases*}
+\]となる。したがって，同型\eqref{dokei_sp}を導いたのと同様に，同型
+\begin{equation}\label{dokei_zx}
+\mathbb{Z}[x]/{(\phi_{\alpha_n}(x))}\cong\mathcal{O}_K
+\end{equation}
+が得られる。
+
+それでは，素数$p$の分解を考えていこう。$\bar{\phi}_{\alpha_n}(x)\in\mathbb{F}_p[x]$を，$\phi_{\alpha_n}(x)$の係数を$\mathbb{F}_p$の元とみなしたものとすると，同型\eqref{dokei_zx}と第三同型定理より，
+\begin{equation}\label{joyokan_ok}
+    \mathcal{O}_K/{p\mathcal{O}_K}\cong\mathbb{Z}[x]/{(p,\phi_{\alpha_n}(x))}\cong \mathbb{F}_p[x]/{(\bar{\phi}_{\alpha_n}(x))}
+\end{equation}
+となる。ここで，$\bar{\phi}_{\alpha_n}(x)$の$\mathbb{F}_p[x]$での分解は次の通り：
+\begin{equation*}
+    \bar{\phi}_{\alpha_n}(x)=
+    \begin{cases*}
+        (x-a_1)(x-a_2)&(ただし$a_1\ne a_2$),\\
+        (x-b)^2&(重根$b$の存在),\\
+        \bar{\phi}_{\alpha_n}(x)&(分解しない，つまり既約).
+    \end{cases*}
+\end{equation*}
+
+ここが面白いのだが，同型\eqref{joyokan_ok}によって$\mathbb{F}_p[x]/{(\bar{\phi}_{\alpha_n}(x))}$の同値類$\overbrace{x-c+(\bar{\phi}_{\alpha_n}(x))}^{\in\mathbb{F}_p[x]/{(\bar{\phi}_{\alpha_n}(x))}}$と$\mathcal{O}_K/{p\mathcal{O}_K}$の同値類$\overbrace{\alpha_n-c+p\mathcal{O}_K}^{\in\mathcal{O}_K/{p\mathcal{O}_K}}$が対応するとともに，イデアルの対応定理より，$\mathcal{O}_K/{p\mathcal{O}_K}$のイデアルは$\mathcal{O}_K$の$p\mathcal{O}_K$を含むイデアルと1対1に対応するから，よく考えると$p\mathcal{O}_K$の分解のパターンは次のようになる：
+\begin{equation*}
+    p\mathcal{O}_K=
+    \begin{cases*}
+        \mathfrak{p}_1\mathfrak{p}_2&(ただし$\mathfrak|{p}_i=(p,\alpha_n-a_i)$),\\
+        \mathfrak{p}^2&(ただし$\mathfrak{p}=(p,\alpha_n-b)$),\\
+        p\mathcal{O}_K&($p\mathcal{O}_K)$自身が素イデアル).
+    \end{cases*}
+\end{equation*}
+それぞれのパターンを，$p$は$\mathcal{O}_K$で\textbf{完全分解する(completely decomposed)，完全分岐する(totally ramified)，惰性する(inert)}と呼ぶ。
+
+1つ目のパターン(完全分解)では，第一同型定理よる同型$\mathbb{F}_p[x]/{(x-a_i)}\ni f(x)\xmapsto{\cong} f(a_i)\in\mathbb{F}_p$と，CRTから，$\mathbb{F}_p[x]/{(\bar{\phi}_{\alpha_n}(x))}\cong\mathbb{F}_p[x]/{((x-a_1)(x-a_2))}\cong\mathbb{F}_p[x]/{\overbrace{(x-a_1)(x-a_2)}^{\text{イデアルの積}}}\overset{\text{CRT}}{\cong}\mathbb{F}_p[x]/{(x-a_1)}\times\mathbb{F}_p[x]/{(x-a_2)}\cong \mathbb{F}_p\times\mathbb{F}_p$となる(同型\eqref{crt_apply}と$p\mathcal{O}_K$の分解から求めても同じ結果になる)。3つ目のパターン(惰性)で$\mathcal{O}_K/{p\mathcal{O}_K}$は，$\mathbb{F}_p$に$\bar{\phi}_{\alpha_n}(x)$の根を添加して得られる$\mathbb{F}_p$の唯一の2次拡大$\mathbb{F}_{p^2}$と同型になる。
+したがって，各パターンで$\mathcal{O}_K/{p\mathcal{O}_K}\cong \mathbb{F}_p[x]/{(\bar{\phi}_{\alpha_n}(x))}$は，以下と同型である：
+\begin{equation*}
+    \mathcal{O}_K/{p\mathcal{O}_K}\cong
+    \begin{cases*}
+        \mathbb{F}_p\times\mathbb{F}_p,&(分解する)\\
+        \mathbb{F}_p[x]/(x-b)^2,&(分解しない)\\
+        \mathbb{F}_{p^2}&(分解せず$\mathbb{F}_p$が拡大する).
+    \end{cases*}
+\end{equation*}
+
+二平方和定理の証明の後の「注目すべき点」1.に書いたことを思い出していただきたい。抽象代数の視点から素数の分解を捉え直したが，同じ現象が見られたことがわかるだろう。
+
+上記の内容を踏まえ，二平方和定理の証明の舞台でもあった$\mathcal{O}_K=\mathbb{Z}[\sqrt{-1}]$の場合を考えてみよう。
+
+まず，$\phi_{\alpha_{-1}}(x)=x^2+1$だから，素数$p$の分解を考えるためには，$\mathbb{F}_p[x]$の元としての$x^2+1$(つまり$\bar{\phi}_{\alpha_{-1}}$)の分解を調べればよい。例えば$\mathbb{F}_5[x]$において$x^2+1=(x-2)(x+2)$となるが，$\bar{\phi}_{\alpha_{-1}}$が分解するかどうかは，$x^2+1$が$\mathbb{F}_p$に根を持つかどうかに依存する。これは，$-1$が$p$の平方剰余かどうか，という話である。したがって，平方剰余の第一補充法則より，$p\equiv 1\pmod{4}$の時かつその時に限り，$\bar{\phi}_{\alpha_{-1}}$は1次式の積に分解し，$p$は$\mathcal{O}_K$で完全分解する。
+
+また，$p$が完全分岐するのは$\mathbb{F}_p[x]$で$x^2+1=(x+a)^2$となる時だが，このとき$p=2$となる(係数を比較するだけでわかる)。実際，$\mathbb{F}_2[x]$において$x^2+1=(x+1)^2=(x-1)^2$である(\textsf{FD}だね)し，$2\mathcal{O}_K=(\sqrt{-1}+1)^2=(\sqrt{-1}-1)^2$である。
+
+次は，$\omega\coloneqq\alpha_{-3}-1$として，$\mathcal{O}_K=\mathbb{Z}[\omega]$(\textbf{アイゼンシュタイン整数環})を簡単に見てみよう。
+
+まず，$\mathbb{Z}[\sqrt{-1}]$のときと同様にして，$p$が$\mathcal{O}_K$で分解するかどうかは，$-3$が$p$の平方剰余かどうかによって調べれば良い。ここで，平方剰余の第一補充法則と，二平方和定理の証明の後の「注目すべき点」1.に載せた平方剰余の相互法則を用いる：
+\begin{align*}
+    \left(\frac{-3}{p}\right)&=\left(\frac{-1}{p}\right)\left(\frac{3}{p}\right)\\
+    &=(-1)^{\frac{p-1}{2}}\times (-1)^{\frac{p-1}{2}\frac{3-1}{2}}\left(\frac{p}{3}\right)\\
+    &=\left(\frac{p}{3}\right).
+\end{align*}
+3を法とする平方剰余は1だけだから，$-3$が$p$の平方剰余であることは，$p\equiv 1\pmod{3}$と同値であり，その時に限って$p$は完全分解する。また，(理由は省略するが)$p=3$は完全分岐する。
+
+「注目すべき点」1.の内容の通り，平方剰余の相互法則により，具体的に分かってしまうのだ。次のことが知られている：
+\begin{quote}
+    $p$を奇素数とする。$\mathcal{O}_K=\mathbb{Z}[\alpha_n]$において，$p$が$n$を割り切る時$p$は完全分岐する。また，$n$が$p$の平方剰余となることと$p$が完全分解することは同値である。したがって，$p$が$n$を割り切らない時，$n$が$p$の平方剰余でないことは$p$が惰性することと同値である。
+\end{quote}
+
+これが，$p=x^2+ny^2$と表せる条件の背景にある世界である。ところで，\textbf{フロベニウスはどうなったの!! \textsf{FD}は!?}
+
+
+
+
+
+
+
+
+
+
