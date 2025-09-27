@@ -1,10 +1,10 @@
 # Fdb version 4
-["dvipdf"] 1758927993.29209 "main.dvi" "main.pdf" "main" 1758927993.84023 0
-  "main.dvi" 1758927993.24939 297684 01193ed8b554e2c479bf5efd87fcf7e2 "latex"
+["dvipdf"] 1758953385.33523 "main.dvi" "main.pdf" "main" 1758953385.89191 0
+  "main.dvi" 1758953385.29214 298312 34da863f15ab327f1ee0b4441dd93e45 "latex"
   (generated)
   "main.pdf"
   (rewritten before read)
-["latex"] 1758927991.98925 "/Users/224267nkk/My_vscode_Files/LaTeX_out/suken_2025/sukenbushi/main.tex" "main.dvi" "main" 1758927993.83864 0
+["latex"] 1758953384.0272 "/Users/224267nkk/My_vscode_Files/LaTeX_out/suken_2025/sukenbushi/main.tex" "main.dvi" "main" 1758953385.89038 0
   "/Users/224267nkk/My_vscode_Files/LaTeX_out/suken_2025/sukenbushi/main.tex" 1758897488.79268 4870 7be5cdd6494abf608b39a9df925095ca ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.tfm" 1246382020 1040 b84415f97d114011685943ade933dc71 ""
@@ -252,15 +252,15 @@
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "Figure_using_and.png" 1752392076.91158 19061 21882830b4f436e727a3e32fa24e8df4 ""
   "extra.tex" 1758899761.49545 3255 37acb10cf563aafe3e4c434bfe03c194 ""
-  "main.aux" 1758927993.24761 16391 1c7641703d695362a6a6f2e2a01f3450 "latex"
-  "main.out" 1758927993.24918 3122 36df9b0a2b3336186cc4dfcb7cc56863 "latex"
+  "main.aux" 1758953385.29059 16391 1c7641703d695362a6a6f2e2a01f3450 "latex"
+  "main.out" 1758953385.29196 3122 36df9b0a2b3336186cc4dfcb7cc56863 "latex"
   "main.tex" 1758897488.79268 4870 7be5cdd6494abf608b39a9df925095ca ""
-  "main.toc" 1758927993.24936 2368 f33c114f4168616a1c2809b18abd4bea "latex"
+  "main.toc" 1758953385.29211 2368 f33c114f4168616a1c2809b18abd4bea "latex"
   "sec_1.tex" 1758875464.19315 2913 4bf777e4160a1e498fb0a275759564f0 ""
   "sec_2.tex" 1758897850.67258 8261 fe45ddef3efee6bee3adf6af8ae82e71 ""
   "sec_3.tex" 1758899051.40635 39141 2762f957bf1c27ba2675bfc5859413e4 ""
   "sec_4.tex" 1758927991.77489 30794 573ceb5b4e8b2984db30f2120f5c00f4 ""
-  "sec_5.tex" 1758899702.78453 8803 b927e4b9eb3910bb78685ec2a83cf236 ""
+  "sec_5.tex" 1758953383.83488 9021 bc2128ea488276270b1113af8d649571 ""
   (generated)
   "main.aux"
   "main.dvi"

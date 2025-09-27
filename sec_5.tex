@@ -38,7 +38,7 @@
 
 \vspace{10pt}
 
-シェルピンスキーのギャスケットを表示する際に問題となるのは，二項係数の偶奇を判定する方法である。素朴にやるのであれば，\texttt{\textbf{import} math}のもとで\texttt{math.comb(n,m) \% 2}をひたすら計算すれば良いが，これでは，ギャスケットの段数が大きくなった時に時間がかかってしまう。そこで，リュカの定理をうまく使う。そのまま使うと，一度2進法に直したものを2で割ったあまりを求めて掛け合わせなければならないが，プログラム\ref{sierpinski}に示したアルゴリズムはより速いものである。
+シェルピンスキーのギャスケットを表示する際に問題となるのは，二項係数の偶奇を判定する方法である。素朴にやるのであれば，\texttt{\textbf{import} math}のもとで\texttt{math.comb(n,m) \% 2}をひたすら計算すれば良いが，これでは，ギャスケットの段数が大きくなった時に時間がかかってしまう。そこで，リュカの定理をうまく使う。そのまま使うと，一度2進法に直したものを2で割ったあまりを求めて掛け合わせなければならないが，プログラム\ref{sierpinski}に示したアルゴリズムはより速いものである。なお，プログラムはこのpdfを載せたGitHubリポジトリ(\url{https://github.com/stochastic-yukke/sukenbushi2025})の「py\_files」の中に「using\_and.py」という名前で置いておきました。
 
 \begin{lstlisting}[caption=uszczelka Sierpińskiego,label=sierpinski]
 import matplotlib.pyplot as plt
