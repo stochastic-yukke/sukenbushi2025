@@ -1,6 +1,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,latex,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,latex,python
 
+.DS_Store
+
 ### LaTeX ###
 ## Core latex/pdflatex auxiliary files:
 *.aux
