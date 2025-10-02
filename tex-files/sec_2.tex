@@ -7,23 +7,23 @@
 まずは，次の有名な定理を証明していこう：
 
 \begin{thm}[フェルマーの小定理]\label{fermat_little}
-  $p$が素数で，$x \in \mathbb{Z}$が$p$で割り切れなければ，$\boldsymbol{x^{p-1} \equiv 1 \pmod{p}}$．
+    $p$が素数で，$x \in \mathbb{Z}$が$p$で割り切れなければ，$\boldsymbol{x^{p-1} \equiv 1 \pmod{p}}$．
 \end{thm}
 
 \begin{lemma}[\textsf{FD}]\label{mod_fresh}
-  $p$が素数であるとき，$\boldsymbol{(x + y)^p \equiv x^p + y^p \pmod{p}}$である．
+    $p$が素数であるとき，$\boldsymbol{(x + y)^p \equiv x^p + y^p \pmod{p}}$である．
 \end{lemma}
-  これは，二項定理と，任意の$0 < k < pを満たすk \in \mathbb{Z}$に対して$\binom{p}{k}$が$p$の倍数であることを用いれば示すことができる。あとで出てくる補題\ref{ch_fresh}の証明に書いた方法とまったく同様である。それでは，この補題を用いて定理\ref{fermat_little}を示そう：
+これは，二項定理と，任意の$0 < k < pを満たすk \in \mathbb{Z}$に対して$\binom{p}{k}$が$p$の倍数であることを用いれば示すことができる。あとで出てくる補題\ref{ch_fresh}の証明に書いた方法とまったく同様である。それでは，この補題を用いて定理\ref{fermat_little}を示そう：
 \begin{prf}
-  補題\ref{mod_fresh}を繰り返し用いることで，$p$を法として，
-  \begin{align*}
+    補題\ref{mod_fresh}を繰り返し用いることで，$p$を法として，
+    \begin{align*}
     x^{p} & = (1 + (x - 1))^p  \\
     & \equiv 1^p + (1 + (x - 2))^p \\
     & \quad \vdots \\
     & \equiv (1^p) \times x \\
     & = x
-  \end{align*}
-  を得る．ここで，$x$が$p$の倍数でない，つまり$x$と$p$が互いに素である，とすれば$x^{p-1} \equiv 1 \pmod{p}$となる．
+\end{align*}
+を得る．ここで，$x$が$p$の倍数でない，つまり$x$と$p$が互いに素である，とすれば$x^{p-1} \equiv 1 \pmod{p}$となる．
 \end{prf}
 
 補題\ref{mod_fresh}において，\textsf{FD}が成し遂げられていることに注目してほしい。ある意味で，フェルマーの小定理の証明は，\textsf{FD}が叶う念願の舞台と言える。しかし，フェルマーの小定理と\textsf{FD}との関係は，思ったよりも深いのである。
@@ -35,45 +35,45 @@
 ここで，環は乗法の単位元をもつ(unitalな)ものだけを考える。また，これから定義する標数やフロベニウス写像という対象は本来，体のみに対して定義されるものではない。
 
 \begin{dfn}[体の標数]\label{ch_def}
-  体$K$に対して，$K$の単位元を$1_K$とかく．$n \in \mathbb{Z^{+}}$に対して，$n$を，$1_K$の$n$個の和として定義する．$n=0_K$($0_K$は加法の単位元)を満たす$n \in \mathbb{Z^{+}}$が存在するとき，そのような$n$の最小値を$K$の\textbf{標数}と呼び，$\mathbf{ch}\boldsymbol{K}$とかく．
+    体$K$に対して，$K$の単位元を$1_K$とかく．$n \in \mathbb{Z^{+}}$に対して，$n$を，$1_K$の$n$個の和として定義する．$n=0_K$($0_K$は加法の単位元)を満たす$n \in \mathbb{Z^{+}}$が存在するとき，そのような$n$の最小値を$K$の\textbf{標数}と呼び，$\mathbf{ch}\boldsymbol{K}$とかく．
 \end{dfn}
 
 ここで，定義より，\textbf{標数は0か素数である}ことが示せる(ヒント：標数＞０を$lm\left(l,m\geqq 2, \, l,m \in \mathbb{Z}\right)$とおくと，$K$の整域としての性質により$lm$の最小性に矛盾する)。
 
 \begin{lemma}[\textsf{FD}]\label{ch_fresh}
-  $K$が標数$p\, (>0)$の体で，$n \in \mathbb{Z^{+}}$，$q=p^n$ならば，任意の$x,y \in K$に対して$\boldsymbol{(x+y)^{q}=x^q+y^q}$である．
+    $K$が標数$p\, (>0)$の体で，$n \in \mathbb{Z^{+}}$，$q=p^n$ならば，任意の$x,y \in K$に対して$\boldsymbol{(x+y)^{q}=x^q+y^q}$である．
 \end{lemma}
 
 補題\ref{mod_fresh}の下に記した方針で全く同じように示せるが，一応，一般的な体についての証明ということなので，証明を載せておこう：
 
 \begin{prf}
-  $n$に関する帰納法により，$n=1$の場合を示せばよい。二項定理により，
-  \[
-  (x+y)^p=x^p+y^p+\sum_{i=1}^{p-1}\binom{p}{i}x^i y^{p-i}
-  \]
-  となり，二項係数に注目すると，
-  \[
-  \binom{p}{i}=\frac{p(p-1)\cdots(p-i+1)}{i!}=\prod_{j=1}^{i}\frac{p-j+1}{j}
-  \]
-  である．$i<p$ならば，分母は$p$の倍数でなく，$i>0$ならば，最初の因子は$p/1$である．したがって，$\binom{p}{i}$は$0<i<p$のとき$p$の倍数である．$K$において$p=0$だから，$(x+y)^p=x^p+y^p$である．
+    $n$に関する帰納法により，$n=1$の場合を示せばよい。二項定理により，
+    \[
+    (x+y)^p=x^p+y^p+\sum_{i=1}^{p-1}\binom{p}{i}x^i y^{p-i}
+    \]
+    となり，二項係数に注目すると，
+    \[
+    \binom{p}{i}=\frac{p(p-1)\cdots(p-i+1)}{i!}=\prod_{j=1}^{i}\frac{p-j+1}{j}
+    \]
+    である．$i<p$ならば，分母は$p$の倍数でなく，$i>0$ならば，最初の因子は$p/1$である．したがって，$\binom{p}{i}$は$0<i<p$のとき$p$の倍数である．$K$において$p=0$だから，$(x+y)^p=x^p+y^p$である．
 \end{prf}
 
 上の補題より，素敵な定理が導かれる：
 
 \begin{thm}
-  $K$が$\mathrm{ch}K=p$の体で，$n \in \mathbb{Z}^{+}$に対し$q=p^n$ならば，$\mathrm{Frob_q}:K \ni x \mapsto x^q \in K$で定義された写像は体準同型である．
+    $K$が$\mathrm{ch}K=p$の体で，$n \in \mathbb{Z}^{+}$に対し$q=p^n$ならば，$\mathrm{Frob_q}:K \ni x \mapsto x^q \in K$で定義された写像は体準同型である．
 \end{thm}
 
 \begin{prf}
-  まず，$\mathrm{Frob_q}(0)=0,\mathrm{Frob_q}(1)=1$．上記補題から，$\mathrm{Frob_q}$は和を保つ．さらに，任意の$x,y \in K$に対して，
-  \[
-  \mathrm{Frob_q}(xy)=(xy)^q=x^q y^q=\mathrm{Frob_q}(x)\mathrm{Frob_q}(y)
-  \]
-  となる．よって，$\mathrm{Frob_q}$は体準同型である．
+    まず，$\mathrm{Frob_q}(0)=0,\mathrm{Frob_q}(1)=1$．上記補題から，$\mathrm{Frob_q}$は和を保つ．さらに，任意の$x,y \in K$に対して，
+    \[
+    \mathrm{Frob_q}(xy)=(xy)^q=x^q y^q=\mathrm{Frob_q}(x)\mathrm{Frob_q}(y)
+    \]
+    となる．よって，$\mathrm{Frob_q}$は体準同型である．
 \end{prf}
 
 \begin{dfn}[フロベニウス写像]\label{frob_def}
-  上記定理内で定義した写像$\mathrm{Frob_q}$を\textbf{フロベニウス写像}という．
+    上記定理内で定義した写像$\mathrm{Frob_q}$を\textbf{フロベニウス写像}という．
 \end{dfn}
 
 フロベニウス写像が準同型だからといって何が素敵なのか？まず，フロベニウス写像は，体において標数のみから定まる自然な\footnote{($p$乗するだけ構成できるという意味で)自然に誰でも構成できる，ということだと思って欲しい。このような感覚的な「自然」という概念を数学的にきちんと定義したものが圏論における「自然変換」である。}写像なのに，必ず準同型である，ということ。他にも素敵なことはあるが，これ以降書いていく。
@@ -86,7 +86,7 @@
 この節では，前節で定義したフロベニウス写像を用いて議論を展開していこう。
 
 \begin{dfn}\footnote{数字の上にバーをつけているのは，$n$で割ったあまりについての同値類であることを明確にするため。また，この定義は環論の「イデアル」を用いた方が一般化の余地があって良いかもしれないが，こう定義した方がわかりやすい。}
-  $n \in \mathbb{Z^{+}}$ に対し，環$\boldsymbol{ \mathbb{Z} /n \mathbb{Z}}$を，集合として$\mathbb{Z} /n \mathbb{Z} = \{\bar{0},\bar{1}, \dots ,\overline{n-1} \}$と定義する．$0\leqq x,y \leqq n-1$である整数$x,y$により$\bar{x},\bar{y}$という形をした$\mathbb{Z}/n\mathbb{Z}$の2元に対し，$x+y$を$n$で割った剰余が$r$ならば，$\bar{x}+\bar{y}=\bar{r}$と定義する．$\bar{x}\bar{y}$も$xy$により同様に定義する．
+    $n \in \mathbb{Z^{+}}$ に対し，環$\boldsymbol{ \mathbb{Z} /n \mathbb{Z}}$を，集合として$\mathbb{Z} /n \mathbb{Z} = \{\bar{0},\bar{1}, \dots ,\overline{n-1} \}$と定義する．$0\leqq x,y \leqq n-1$である整数$x,y$により$\bar{x},\bar{y}$という形をした$\mathbb{Z}/n\mathbb{Z}$の2元に対し，$x+y$を$n$で割った剰余が$r$ならば，$\bar{x}+\bar{y}=\bar{r}$と定義する．$\bar{x}\bar{y}$も$xy$により同様に定義する．
 \end{dfn}
 
 ここで，$\mathbb{F}_p=\mathbb{Z}/p\mathbb{Z} \,(pは素数)$を考えると，$\mathbb{F}_p$において，乗法に関する逆元が定義でき，したがって，$\mathbb{F}_p$は体となる(証明は，$\mathbb{F}_p$係数一次方程式の$\mathbb{F}_p$における解が一意に存在することを示せば良い)。そして，明らかに$\mathrm{ch}(\mathbb{F}_p)=p$となる。
@@ -94,6 +94,6 @@
 再びフェルマーの小定理を思い出そう。次のことがわかる：
 
 \begin{mybox}[フロベニウス写像の不動点]
-  $\mathbb{F}_p$は標数$p$の体であるから，フロベニウス自己準同型$\mathrm{Frob}_p:\mathbb{F}_p\ni x\mapsto x^p\in \mathbb{F}_p$がある．フェルマーの小定理より，$\mathbb{F}_p$において，任意の$x\in \mathbb{F}_p$に対して$x^p=x$となる．よって，$\mathrm{Frob}_p=\mathrm{id}_{\mathbb{F}_p}$ である．
+    $\mathbb{F}_p$は標数$p$の体であるから，フロベニウス自己準同型$\mathrm{Frob}_p:\mathbb{F}_p\ni x\mapsto x^p\in \mathbb{F}_p$がある．フェルマーの小定理より，$\mathbb{F}_p$において，任意の$x\in \mathbb{F}_p$に対して$x^p=x$となる．よって，$\mathrm{Frob}_p=\mathrm{id}_{\mathbb{F}_p}$ である．
 \end{mybox}
 どうだろう。群や体の言葉でフェルマーの小定理を捉え直す試みは，群の位数と元の位数に関するラグランジュの定理や巡回群の文脈で行われることが多いが，今回はフロベニウス写像というものを使ってみた。フロベニウス写像の不動点というのは，「代数幾何学」においても中心的なアイデアであるらしく，有限体のガロワ理論を背景に，有理点をフロベニウスの固定点と捉える視点は重要であるらしい。フロベニウスのありがたみをまだ実感できないかもしれないが，フロベニウス写像を導入したのにはまだワケがある。続く節\ref{ruitai_game},\ref{hekiraku}で話をさらに膨らませていこう。

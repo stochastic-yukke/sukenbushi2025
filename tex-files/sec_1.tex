@@ -1,30 +1,30 @@
 \section{いくつかの儚い夢たち}
 \begin{dfn}[数の集合]
-  正の整数全体の集合を$\mathbb{Z^{+}}$と書く．
+    正の整数全体の集合を$\mathbb{Z^{+}}$と書く．
 \end{dfn}
 
 ここでは，偽であるような\textsf{FD}を幾つか挙げます。\textsf{FD}と仲よくなるとともに，\textsf{FD}が成り立つのは結構特殊な場合であることをわかって欲しいです。読者も色々な例を試してみて下さい。これ以降，すべて常体で書いていきます(別に高圧的な態度を取ろうとしているわけじゃないよ)。
 
 \begin{mybox}[展開公式]
-  $x,y \in \mathbb{R},\, p \in \mathbb{Z^{+}}$に対して，$(x + y)^p = x^p + y^p$は，自明な場合を除いて決して成立しない。
+    $x,y \in \mathbb{R},\, p \in \mathbb{Z^{+}}$に対して，$(x + y)^p = x^p + y^p$は，自明な場合を除いて決して成立しない。
 \end{mybox}
 
 \begin{mybox}[平方根]
-  $p = 1/2, \, x,y \in \mathbb{C}$のとき，定義\ref{freshman}の主張は，$\sqrt{x+y} = \sqrt{x} + \sqrt{y}$ということになり，一般に成り立たないことは明白である。また，$x,y$が非負実数であるとき$\sqrt{x+y},\sqrt{x}+\sqrt{y}\geqq 0$だから，$x+y\leqq x+2\sqrt{x}\sqrt{y}+y$より，任意の非負実数$x,y$に対して$\sqrt{x+y}\leqq\sqrt{x}+\sqrt{y}$である。
+    $p = 1/2, \, x,y \in \mathbb{C}$のとき，定義\ref{freshman}の主張は，$\sqrt{x+y} = \sqrt{x} + \sqrt{y}$ということになり，一般に成り立たないことは明白である。また，$x,y$が非負実数であるとき$\sqrt{x+y},\sqrt{x}+\sqrt{y}\geqq 0$だから，$x+y\leqq x+2\sqrt{x}\sqrt{y}+y$より，任意の非負実数$x,y$に対して$\sqrt{x+y}\leqq\sqrt{x}+\sqrt{y}$である。
 \end{mybox}
 
 \begin{mybox}[集合の直積]
-  $x,y$を集合とする。集合$\mathrm{A}$に対して，$n \in \mathbb{Z^{+}}$に対する$\mathrm{A}^n$は，$\mathrm{A}$の$n$個の直積を表すものとし，集合の和の記号$\cup$ を+と書くことにすると，$(a_1,\ldots,a_p)\in(x+y)^p\Leftrightarrow\forall i\in\{1,\ldots,p\},(a_i\in x\text{または} a_i\in y)\overset{\not\Rightarrow}{\Leftarrow}(\forall i\in\{1,\ldots,p\}, a_i\in x)\text{または}(\forall i\in\{1,\ldots,p\}, a_i\in y)\Leftrightarrow (a_1,\ldots,a_p)\in x^p+y^p$より，$(x+y)^p\supset x^p+y^p$となる。したがって，\textsf{FD}は一般に成り立たない。
+    $x,y$を集合とする。集合$\mathrm{A}$に対して，$n \in \mathbb{Z^{+}}$に対する$\mathrm{A}^n$は，$\mathrm{A}$の$n$個の直積を表すものとし，集合の和の記号$\cup$ を+と書くことにすると，$(a_1,\ldots,a_p)\in(x+y)^p\Leftrightarrow\forall i\in\{1,\ldots,p\},(a_i\in x\text{または} a_i\in y)\overset{\not\Rightarrow}{\Leftarrow}(\forall i\in\{1,\ldots,p\}, a_i\in x)\text{または}(\forall i\in\{1,\ldots,p\}, a_i\in y)\Leftrightarrow (a_1,\ldots,a_p)\in x^p+y^p$より，$(x+y)^p\supset x^p+y^p$となる。したがって，\textsf{FD}は一般に成り立たない。
 \end{mybox}
 
 \begin{mybox}[排他的論理和]
-  $1\oplus1=0,\,0\oplus0=0,\,1\oplus0=1,\,0\oplus1=1$として$\oplus$を定義する。整数$n,m$に対し，二進法表記した$i$桁目$n_i,m_i$について$n_i\oplus m_i$を計算し，その結果を$i$桁目とした数を$n\oplus m$とかく。例えば$3\oplus6=0011_{(2)}\oplus0110_{(2)}=0101_{(2)}=5$となる。$(3\oplus6)^2\ne 3^2\oplus6^2$など，\textsf{FD}は一般に成り立たない。
+    $1\oplus1=0,\,0\oplus0=0,\,1\oplus0=1,\,0\oplus1=1$として$\oplus$を定義する。整数$n,m$に対し，二進法表記した$i$桁目$n_i,m_i$について$n_i\oplus m_i$を計算し，その結果を$i$桁目とした数を$n\oplus m$とかく。例えば$3\oplus6=0011_{(2)}\oplus0110_{(2)}=0101_{(2)}=5$となる。$(3\oplus6)^2\ne 3^2\oplus6^2$など，\textsf{FD}は一般に成り立たない。
 \end{mybox}
 
 一応，\textsf{FD}が成り立つ例も1つだけ示しておく。
 
 \begin{mybox}[min-plus代数(トロピカル幾何学)では\dots]
-  $\mathbb{R}$に対して，$x\oplus y=\min\{x, y\}$，$x\odot y=x+y$という演算を導入する。また，$p\in\mathbb{Z^+}$に対して，$x^p=x\odot x\odot\cdots\odot x=px$する。すると，任意の$x,y\in\mathbb{R},\, p\in\mathbb{Z}^+$に対して，$(x\oplus y)^p=\min\{x,y\}\times p=\min\{px, py\}=x^p\oplus y^p$となる。
+    $\mathbb{R}$に対して，$x\oplus y=\min\{x, y\}$，$x\odot y=x+y$という演算を導入する。また，$p\in\mathbb{Z^+}$に対して，$x^p=x\odot x\odot\cdots\odot x=px$する。すると，任意の$x,y\in\mathbb{R},\, p\in\mathbb{Z}^+$に対して，$(x\oplus y)^p=\min\{x,y\}\times p=\min\{px, py\}=x^p\oplus y^p$となる。
 \end{mybox}
 
 他にも，\textsf{FD}が成り立たない場合，成り立つ場合，について色々計算してみて欲しい。

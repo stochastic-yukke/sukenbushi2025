@@ -23,23 +23,23 @@
 %
 \usepackage{listings,jvlisting}
 \lstset{
-  language=Python,%
-  basicstyle={\small},%
-  identifierstyle={\small},%
-  commentstyle={\small\itshape},%
-  keywordstyle={\small\bfseries},%
-  ndkeywordstyle={\small},%
-  stringstyle={\small\ttfamily},%
-  frame={tblr},%
-  breaklines=true,%
-  columns=[l]{fullflexible},%
-  numbers=left,%
-  xrightmargin=0zw,%
-  xleftmargin=3zw,%
-  numberstyle={\scriptsize},%
-  stepnumber=1,%
-  numbersep=1zw,%
-  lineskip=-0.5ex%
+    language=Python,%
+    basicstyle={\small},%
+    identifierstyle={\small},%
+    commentstyle={\small\itshape},%
+    keywordstyle={\small\bfseries},%
+    ndkeywordstyle={\small},%
+    stringstyle={\small\ttfamily},%
+    frame={tblr},%
+    breaklines=true,%
+    columns=[l]{fullflexible},%
+    numbers=left,%
+    xrightmargin=0zw,%
+    xleftmargin=3zw,%
+    numberstyle={\scriptsize},%
+    stepnumber=1,%
+    numbersep=1zw,%
+    lineskip=-0.5ex%
 }% listings,jvlistings環境を使ってPythonのソースコードを書いた
 %
 %
@@ -53,9 +53,9 @@
 % -------------以下，自作環境---------------
 %
 \newtcolorbox{mybox}%
-  [1]%
-  []%
-  {%
+    [1]%
+    []%
+    {%
     breakable=true,%
     colback=gray!10,%
     boxrule=0pt,%
@@ -63,57 +63,57 @@
     colbacktitle=black!56,%
     fonttitle=\bfseries\sffamily,%
     title=#1%
-  }
+    }
 % 囲み環境
 %
 \newtheoremstyle{myproposition}%
-  {13pt}%                   % Space above
-  {13pt}%                   % Space below
-  {\normalfont}%
-  {}%
-  {\bfseries\sffamily}%
-  {.}%
-  {6pt}%                    % Space after head
-  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
+    {13pt}%                   % Space above
+    {13pt}%                   % Space below
+    {\normalfont}%
+    {}%
+    {\bfseries\sffamily}%
+    {.}%
+    {6pt}%                    % Space after head
+    {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
 % 定理/命題/補題などのための環境
 %
 \declaretheoremstyle[%
-  spaceabove=13pt, spacebelow=13pt,%
-  headfont=\bfseries\sffamily,%
-  notefont=\bfseries\sffamily,%
-  notebraces={\lparen}{\rparen},%
-  postheadspace=1em,%
-  numberwithin=section,%
-  qed=$\triangleleft$%
+    spaceabove=13pt, spacebelow=13pt,%
+    headfont=\bfseries\sffamily,%
+    notefont=\bfseries\sffamily,%
+    notebraces={\lparen}{\rparen},%
+    postheadspace=1em,%
+    numberwithin=section,%
+    qed=$\triangleleft$%
 ]{mydefinition}
 % 定義のための環境
 %
 \declaretheoremstyle[%
-  spaceabove=13pt, spacebelow=13pt,%
-  headfont=\bfseries\sffamily,%
-  notefont=\bfseries\sffamily,%
-  notebraces={\lparen}{\rparen},%
-  postheadspace=1em,%
-  numbered=no,%
-  qed=$\blacksquare$%
+    spaceabove=13pt, spacebelow=13pt,%
+    headfont=\bfseries\sffamily,%
+    notefont=\bfseries\sffamily,%
+    notebraces={\lparen}{\rparen},%
+    postheadspace=1em,%
+    numbered=no,%
+    qed=$\blacksquare$%
 ]{myproof}
 % 証明のための環境
 %
 \newtcolorbox{vlinebox}{%
-  enhanced,colback=white,colframe=white,breakable,%
-  underlay={%
+    enhanced,colback=white,colframe=white,breakable,%
+    underlay={%
     \path[draw, ultra thick, lightgray](frame.north west)--(frame.south west);%
-  }%
+    }%
 }
 % 証明に添える縦棒の環境
 %
 \newtcolorbox{mypropbox}{%
-  empty,%
-  breakable,%
-  underlay={%
+    empty,%
+    breakable,%
+    underlay={%
     \fill[black!5] (frame.north west) rectangle (frame.south east);%
     \draw[line width=2pt] ([xshift=1pt]frame.north west)--([xshift=1pt]frame.south west);%
-  }%
+    }%
 }
 % 定理/命題/補題を強調するための環境
 %
@@ -148,12 +148,12 @@
 \maketitle
 
 \begin{abstract}
-  $(x + y)^p = x^p + y^p$という間違いをする人がいることは想像に難くないでしょう。よく，この式を\textbf{Freshman's dream（1年生の夢）}と呼びます。
-  この式を肯定することで数学が広がることを示したいと思います。親しみやすいのに不思議な整数の話題を扱っていきます。
+    $(x + y)^p = x^p + y^p$という間違いをする人がいることは想像に難くないでしょう。よく，この式を\textbf{Freshman's dream（1年生の夢）}と呼びます。
+    この式を肯定することで数学が広がることを示したいと思います。親しみやすいのに不思議な整数の話題を扱っていきます。
 \end{abstract}
 
 \begin{dfn} \label{freshman}
-  $x,y$がそれぞれどのような集合(またはクラス)$X,Y$の元であるか，$=$が$X,Y$上のどのような同値関係であるか，$+:(x,y)\mapsto x+y$がどのような演算であるか，$\cdot~^p$がどのような演算であるか，に関わらず，$(x + y)^p = x^p + y^p$という式を\textbf{Freshman's dream}と呼ぶことにする．また，これ以降，Freshman's dreamのことを\textbf{\textsf{FD}}と書く．
+    $x,y$がそれぞれどのような集合(またはクラス)$X,Y$の元であるか，$=$が$X,Y$上のどのような同値関係であるか，$+:(x,y)\mapsto x+y$がどのような演算であるか，$\cdot~^p$がどのような演算であるか，に関わらず，$(x + y)^p = x^p + y^p$という式を\textbf{Freshman's dream}と呼ぶことにする．また，これ以降，Freshman's dreamのことを\textbf{\textsf{FD}}と書く．
 \end{dfn}
 
 \tableofcontents
