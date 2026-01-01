@@ -43,6 +43,9 @@
 }% listings,jvlistings環境を使ってPythonのソースコードを書いた
 %
 %
+\newcommand{\setmid}{\mathrel{}\middle|\mathrel{}}
+% 集合などの記述で使う縦棒を，長さが変わるように設定
+%
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{thmtools}
 \usepackage{mathtools}
@@ -153,7 +156,7 @@
 \end{abstract}
 
 \begin{dfn} \label{freshman}
-    $x,y$がそれぞれどのような集合(またはクラス)$X,Y$の元であるか，$=$が$X,Y$上のどのような同値関係であるか，$+:(x,y)\mapsto x+y$がどのような演算であるか，$\cdot~^p$がどのような演算であるか，に関わらず，$(x + y)^p = x^p + y^p$という式を\textbf{Freshman's dream}と呼ぶことにする．また，これ以降，Freshman's dreamのことを\textbf{\textsf{FD}}と書く．
+    $x,y$がそれぞれどのような集合(またはクラス)$X,Y$の元であるか，$=$が$X,Y$上のどのような同値関係であるか，$+\colon(x,y)\mapsto x+y$がどのような演算であるか，$\cdot~^p$がどのような演算であるか，に関わらず，$(x + y)^p = x^p + y^p$という式を\textbf{Freshman's dream}と呼ぶことにする．また，これ以降，Freshman's dreamのことを\textbf{\textsf{FD}}と書く．
 \end{dfn}
 
 \tableofcontents

@@ -14,4 +14,5 @@ PDFだけ見たい方は[こちら](https://github.com/stochastic-yukke/sukenbus
 2025/09/03: 3 &nbsp;&thinsp; 回目の更新  
 2025/09/27: 4, 5回目の更新  
 2025/10/12 : 6 &nbsp;&thinsp; 回目の更新  
-2025/10/13 : 7 &nbsp;&thinsp; 回目の更新
+2025/10/13 : 7 &nbsp;&thinsp; 回目の更新  
+2025/01/01 : 8 &nbsp;&thinsp; 回目の更新

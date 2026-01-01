@@ -5,7 +5,7 @@
 \vspace{10pt}
 
 \textbf{代数体$L,K$に対して}$L/K$が体の有限次拡大である時，必ず\[
-L=K(\alpha)=\left\{\frac{g(\alpha)}{f(\alpha)}\mid f(x),g(x)\in K[x],\; f(\alpha)\ne 0\right\}
+L=K(\alpha)=\left\{\frac{g(\alpha)}{f(\alpha)}\setmid f(x),g(x)\in K[x],\; f(\alpha)\ne 0\right\}
 \]となる$\alpha\in L$が存在することが知られている。
 \begin{dfn}[ガロア拡大，ガロア群]
     代数体の有限次拡大$L/K$に対し，$L=K(\alpha)$を満たす$\alpha\in L$をとる。$\alpha$の$K$上の最小多項式$\phi_{\alpha}(x)$のすべての根$\alpha=\alpha^{(1)},\alpha^{(2)},\ldots,\alpha^{(n)}$が$L$の元となる時，$L/K$は\textbf{ガロア拡大}であるという．ガロア拡大$L/K$において，$K$への制限が恒等写像で，$L$上の体自己同型であるもの全体の集合を$\boldsymbol{\textrm{Gal}(L/K)}$と書き，$L/K$の\textbf{ガロア群}と呼ぶ．
@@ -33,7 +33,7 @@ L=K(\alpha)=\left\{\frac{g(\alpha)}{f(\alpha)}\mid f(x),g(x)\in K[x],\; f(\alpha
     $\zeta_n\coloneqq e^{\frac{2\pi\sqrt{-1}}{n}}$を1の原始$n$乗根とする．$\mathbb{Q}$に$\zeta_n$を添加した$\mathbb{Q}(\zeta_n)$を\textbf{($n$次)円分体}という．
 \end{dfn}
 \begin{dfn}[オイラー関数]
-    $(\mathbb{Z}/{n\mathbb{Z}})^{\times}$を$\mathbb{Z}/{n\mathbb{Z}}$の乗法群($n$と互いに素な整数$a$の剰余類を集めたもの)とする．$\varphi:\mathbb{Z}^+\ni n\mapsto\# (\mathbb{Z}/{n\mathbb{Z}})^{\times}\in\mathbb{Z}^+$を\textbf{オイラー関数}と呼び，必ず$\varphi$で表すことにする．
+    $(\mathbb{Z}/{n\mathbb{Z}})^{\times}$を$\mathbb{Z}/{n\mathbb{Z}}$の乗法群($n$と互いに素な整数$a$の剰余類を集めたもの)とする．$\varphi\colon\mathbb{Z}^+\ni n\mapsto\# (\mathbb{Z}/{n\mathbb{Z}})^{\times}\in\mathbb{Z}^+$を\textbf{オイラー関数}と呼び，必ず$\varphi$で表すことにする．
 \end{dfn}
 \begin{dfn}[円分多項式]
     $\varphi(n)$次多項式\[
@@ -58,7 +58,7 @@ L=K(\alpha)=\left\{\frac{g(\alpha)}{f(\alpha)}\mid f(x),g(x)\in K[x],\; f(\alpha
 \end{mybox}
 他にもモチベーションになり得る事柄は数多あるが，先を急ごう。$\mathbb{Q}(\zeta_n)/{\mathbb{Q}}$を\textbf{円分拡大}という。円分拡大について少し見ておこう：
 
-まず，定義からわかるように，$\zeta_n$の最小多項式である円分多項式$\Phi_n(x)$は，$\zeta_n^k\,(k\text{と}n\text{は互いに素})$を根に持つ。$\mathbb{Q}(\zeta_n)/{\mathbb{Q}}$はガロア拡大となり，$\#\mathrm{Gal}(\mathbb{Q}(\zeta_n)/{\mathbb{Q}})=\varphi(n)$となる。ここで，$\sigma_k:\zeta_n\mapsto\zeta_n^k\, (k\in (\mathbb{Z}/{n\mathbb{Z}})^{\times})$を考えると，$(\mathbb{Z}/{n\mathbb{Z}})^{\times}\ni k+n\mathbb{Z}\mapsto\sigma_k\in\mathrm{Gal}(\mathbb{Q}(\zeta_n)/{\mathbb{Q}})$は群同型である。ここで，ガロアの基本定理から$\mathbb{Q}(\zeta_n)$の部分体は，$\mathrm{Gal}(\mathbb{Q}(\zeta_n)/{\mathbb{Q}})$の部分群$H$の不変体$\mathbb{Q}(\zeta_n)_H=\{x\in\mathbb{Q}(\zeta_n)\mid\forall g\in H,\, g(x)=x\}$として与えられる。難しく思われる「中間体を求める」というタスクを，「群の構造を調べる」比較的容易な作業に落とし込めるのが，ガロア理論の強さである。
+まず，定義からわかるように，$\zeta_n$の最小多項式である円分多項式$\Phi_n(x)$は，$\zeta_n^k\,(k\text{と}n\text{は互いに素})$を根に持つ。$\mathbb{Q}(\zeta_n)/{\mathbb{Q}}$はガロア拡大となり，$\#\mathrm{Gal}(\mathbb{Q}(\zeta_n)/{\mathbb{Q}})=\varphi(n)$となる。ここで，$\sigma_k\colon\zeta_n\mapsto\zeta_n^k\, (k\in (\mathbb{Z}/{n\mathbb{Z}})^{\times})$を考えると，$(\mathbb{Z}/{n\mathbb{Z}})^{\times}\ni k+n\mathbb{Z}\mapsto\sigma_k\in\mathrm{Gal}(\mathbb{Q}(\zeta_n)/{\mathbb{Q}})$は群同型である。ここで，ガロアの基本定理から$\mathbb{Q}(\zeta_n)$の部分体は，$\mathrm{Gal}(\mathbb{Q}(\zeta_n)/{\mathbb{Q}})$の部分群$H$の不変体$\mathbb{Q}(\zeta_n)_H=\{x\in\mathbb{Q}(\zeta_n)\mid\forall g\in H,\, g(x)=x\}$として与えられる。難しく思われる「中間体を求める」というタスクを，「群の構造を調べる」比較的容易な作業に落とし込めるのが，ガロア理論の強さである。
 
 \subsection{有限体のガロア理論}
 \textbf{山頂付近の空が晴れてきた------。}
@@ -72,7 +72,7 @@ L=K(\alpha)=\left\{\frac{g(\alpha)}{f(\alpha)}\mid f(x),g(x)\in K[x],\; f(\alpha
 \end{itemize}
 ここで，久しぶりにフロベニウスが登場する\dots\dots というか，フロベニウスが待ってくれていたのだ。ただいま：
 
-$q,q'$を素数$p$のべき乗とし，$q\mid q'$とすると，ガロア拡大$\mathbb{F}_{q'}/{\mathbb{F}_q}$のガロア群$\mathrm{Gal}(\mathbb{F}_{q'}/{\mathbb{F}_q})$は，\textbf{フロベニウス自己同型}$\mathrm{Frob}_q:\mathbb{F}_{q'}\ni x\mapsto x^q\in\mathbb{F}_{q'}$が生成する巡回群$\langle\mathrm{Frob}_q\rangle$となることが知られている。ここで有限体のガロア群の生成元として表れたフロベニウスは，より一般の拡大について考える際にも登場する。
+$q,q'$を素数$p$のべき乗とし，$q\mid q'$とすると，ガロア拡大$\mathbb{F}_{q'}/{\mathbb{F}_q}$のガロア群$\mathrm{Gal}(\mathbb{F}_{q'}/{\mathbb{F}_q})$は，\textbf{フロベニウス自己同型}$\mathrm{Frob}_q\colon\mathbb{F}_{q'}\ni x\mapsto x^q\in\mathbb{F}_{q'}$が生成する巡回群$\langle\mathrm{Frob}_q\rangle$となることが知られている。ここで有限体のガロア群の生成元として表れたフロベニウスは，より一般の拡大について考える際にも登場する。
 
 \subsection{代数体の一般化に向けて}\label{ippanka}
 \textbf{もう雲を抜けたんだ------。}
@@ -198,7 +198,7 @@ G/{Z_{\mathfrak{P}}}\rightarrow\{\mathfrak{P}_1,\ldots,\mathfrak{P}_g\}
 \end{figure}
 
 次に，「惰性群」というものを定義する。以降，$\lambda\coloneq\mathcal{O}_L/{\mathfrak{P}},\,\kappa\coloneq\mathcal{O}_K/{\mathfrak{p}}$とする。$x+\mathfrak{P}\in\lambda$と$\sigma\in Z_{\mathfrak{P}}$に対して，$\sigma(x+\mathfrak{P})=\sigma(x)+\mathfrak{P}$となることから，$\sigma$は$\lambda$の自己同型となり，$\sigma$は$\mathcal{O}_K$の元を固定するため$\kappa$の元も固定する。したがって，$\sigma$は$\mathrm{Gal}(\lambda/{\kappa})$の元$\bar{\sigma}$を定め，対応\[
-\pi:Z_{\mathfrak{P}}\ni\sigma\mapsto\bar{\sigma}\in\mathrm{Gal}(\lambda/\kappa)
+\pi\colon Z_{\mathfrak{P}}\ni\sigma\mapsto\bar{\sigma}\in\mathrm{Gal}(\lambda/\kappa)
 \]が誘導される。$\pi$は単射でない全射準同型となる。そこで，単射にして同型をつくるために，次の群を定義する：
 \begin{dfn}[惰性群，惰性体]
     \[

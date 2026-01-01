@@ -243,7 +243,7 @@ $\alpha_1, \alpha_2,\ldots,\alpha_r\in R$に対して，\[
 
 \begin{mybox}[$\mathbb{Q}(\sqrt{n})$の整数環]
     \begin{enumerate}
-        \item $\mathcal{O}_{\mathbb{Q}(\sqrt{-1})}=\left\{\alpha\in\mathbb{Q}(\sqrt{-1})\mid \phi_{\alpha}(x)\text{の係数は全て整数}\right\}=\left\{a+b\sqrt{-1}\mid a,b\in\mathbb{Z}\right\}\eqqcolon \mathbb{Z}[\sqrt{-1}]$となる($\alpha=a+b\sqrt{-1}\in\mathbb{Q}(\sqrt{-1})$に対し，$\phi_{\alpha}(x)=x^2-2ax+(a^2+b^2)$がわかるから，$\phi_{\alpha}(x)$の係数がすべて整数$\Leftrightarrow 2a\in\mathbb{Z},\, a^2+b^2\in\mathbb{Z}\Leftrightarrow a,b\in\mathbb{Z}$となり，二個目の等号が成立)。この例から分かるように，$\mathbb{Z}[\alpha]$とは，$\mathbb{Z}$を包含し，$\alpha$を元として持つ最小の環のこと\footnote{明示的に表すのであれば，$\mathbb{Z}[\alpha]=\left\{f(\alpha)\mid f(x)\in\mathbb{Z}[x]\right\}$と定義するのがよい。同様に，$\mathbb{Q}(\alpha)=\left\{f(\alpha)\mid f(x)\in\mathbb{Q}[x]\right\}$である。}である。
+        \item $\mathcal{O}_{\mathbb{Q}(\sqrt{-1})}=\left\{\alpha\in\mathbb{Q}(\sqrt{-1})\mid \phi_{\alpha}(x)\text{の係数は全て整数}\right\}=\left\{a+b\sqrt{-1}\mid a,b\in\mathbb{Z}\right\}\eqqcolon \mathbb{Z}[\sqrt{-1}]$となる($\alpha=a+b\sqrt{-1}\in\mathbb{Q}(\sqrt{-1})$に対し，$\phi_{\alpha}(x)=x^2-2ax+(a^2+b^2)$がわかるから，$\phi_{\alpha}(x)$の係数がすべて整数$\Leftrightarrow 2a\in\mathbb{Z},\, a^2+b^2\in\mathbb{Z}\Leftrightarrow a,b\in\mathbb{Z}$となり，二個目の等号が成立)。この例から分かるように，$\mathbb{Z}[\alpha]$とは，$\mathbb{Z}$を包含し，$\alpha$を元として持つ最小の環のこと\footnote{明示的に表すのであれば，$\mathbb{Z}[\alpha]=\left\{f(\alpha)\mid f(x)\in\mathbb{Z}[x]\right\}$と定義するのがよい。同様に，$\mathbb{Q}(\alpha)=\left\{f(\alpha)\mid f(x)\in\mathbb{Q}[x]\right\}$である。$\mathbb{Q}$に対して小括弧($\cdot$)を使い，$\mathbb{Z}$に対して大括弧[$\cdot$]を使うところに，体と環との差異に対応する有理式的構造(有理関数体)と多項式的構造(多項式環)との差異が現れている。}である。
         \item 同様に，$\mathcal{O}_{\mathbb{Q}(\sqrt{2})}=\left\{a+b\sqrt{2}\mid a,b\in\mathbb{Z}\right\}=\mathbb{Z}[\sqrt{2}]$, \\$\mathcal{O}_{\mathbb{Q}(\sqrt[3]{2})}=\left\{a+b\sqrt[3]{2}+c\sqrt[3]{4}\mid a,b,c\in\mathbb{Z}\right\}=\mathbb{Z}[\sqrt[3]{2}]$となる。
         \item ところが\dots\dots$\mathcal{O}_{\mathbb{Q}(\sqrt{-3})}=\left\{\alpha=a+b\sqrt{-3}\in\mathbb{Q}(\sqrt{-3})\mid \phi_{\alpha}(x)\text{の係数はすべて整数}\right\}=\left\{a+b\sqrt{-3}\mid 2a\in\mathbb{Z},\, a^2+3b^2\in\mathbb{Z}\right\}$となるが，$\frac{\pm 1+\sqrt{-3}}{2}$という数が$2a\in\mathbb{Z},\, a^2+3b^2\in\mathbb{Z}$を満たすから，$\mathcal{O}_{\mathbb{Q}(\sqrt{-3})}=\left\{a+b\frac{1+\sqrt{-3}}{2}\mid a,b\in\mathbb{Z}\right\}=\mathbb{Z}\left[\frac{1+\sqrt{-3}}{2}\right]$となる!
         \item より一般に，平方因子を持たない$n$に対し$K=\mathbb{Q}(\sqrt{n})$を考えると，
@@ -257,8 +257,6 @@ $\alpha_1, \alpha_2,\ldots,\alpha_r\in R$に対して，\[
     \end{enumerate}
 \end{mybox}
 
-ちなみに，$\mathbb{Q}$に対して小括弧($\cdot$)を使い，$\mathbb{Z}$に対して大括弧[$\cdot$]を使うのは，環と体を区別するためである($\mathbb{Q}(\alpha)$は体，$\mathbb{Z}[\alpha]$は環)。
-
 \subsubsection{キホンの同型}
 環準同型定理を扱う。
 
@@ -267,19 +265,19 @@ $\alpha_1, \alpha_2,\ldots,\alpha_r\in R$に対して，\[
 環準同型の核は始集合のイデアルであることが示せるから，以下の定理で登場する剰余環$R/{\mathrm{Ker}(f)}$はwell-definedである：
 
 \begin{thm}[環の第一同型定理]
-    可換環の準同型写像$f:R\rightarrow S$は環同型写像\[
-    \pi:R/\mathrm{Ker}(f)\ni x+\mathrm{Ker}(f)\mapsto f(x)\in\mathrm{Im}(f)
+    可換環の準同型写像$f\colon R\rightarrow S$は環同型写像\[
+    \pi\colon R/\mathrm{Ker}(f)\ni x+\mathrm{Ker}(f)\mapsto f(x)\in\mathrm{Im}(f)
     \]を誘導する．
 \end{thm}
 
 \begin{thm}[イデアルの対応定理]
-    $I$を可換環$R$の非自明なイデアル，$f:R\rightarrow R/I$を自然な射影とする．$R/I$のイデアル全体の集合を$\mathbb{X}$，$I$を含む$R$のイデアル全体の集合を$\mathbb{Y}$とするとき，\[
-    \pi:\mathbb{X}\ni J'\mapsto f^{-1}(J')\in\mathbb{Y},\;\; \psi:\mathbb{Y}\ni J\mapsto f(J)\in\mathbb{X}
+    $I$を可換環$R$の非自明なイデアル，$f\colon R\rightarrow R/I$を自然な射影とする．$R/I$のイデアル全体の集合を$\mathbb{X}$，$I$を含む$R$のイデアル全体の集合を$\mathbb{Y}$とするとき，\[
+    \pi\colon\mathbb{X}\ni J'\mapsto f^{-1}(J')\in\mathbb{Y},\;\; \psi\colon\mathbb{Y}\ni J\mapsto f(J)\in\mathbb{X}
     \]は互いに逆写像であり，したがって，$\mathbb{X,Y}$は集合として1対1に対応する．
 \end{thm}
 
 \begin{thm}[環の第三同型定理]
-    可換環$R$とイデアル$\mathfrak{a}\subset\mathfrak{b}\subsetneqq R$について，自然な準同型$f:R/{\mathfrak{a}}\ni x+\mathfrak{a}\mapsto x+\mathfrak{b}\in R/{\mathfrak{b}}$は，（第一同型定理から）同型$R/{\mathfrak{b}}\cong (R/{\mathfrak{a}})(\mathfrak{b}/{\mathfrak{a}})$を誘導する．
+    可換環$R$とイデアル$\mathfrak{a}\subset\mathfrak{b}\subsetneqq R$について，自然な準同型$f\colon R/{\mathfrak{a}}\ni x+\mathfrak{a}\mapsto x+\mathfrak{b}\in R/{\mathfrak{b}}$は，（第一同型定理から）同型$R/{\mathfrak{b}}\cong (R/{\mathfrak{a}})(\mathfrak{b}/{\mathfrak{a}})$を誘導する．
 \end{thm}
 
 再び二平方和定理の直後の「注目すべき点」の2.を顧み，多項式に着目するとうまくいきそうである，ということを思い出そう。
