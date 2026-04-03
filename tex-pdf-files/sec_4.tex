@@ -15,7 +15,7 @@ L=K(\alpha)=\left\{\frac{g(\alpha)}{f(\alpha)}\setmid f(x),g(x)\in K[x],\; f(\al
 \begin{itemize}
     \item $[L:K]=\#\textrm{Gal}(L/K).$
     \item ガロア群の元は，$\phi_{\alpha}(x)$の根の置換を引き起こす写像である。
-    \item $\mathbb{Q}(\sqrt[3]{2})/{\mathbb{Q}}$はガロア拡大ではない代数体の有限次拡大である(証明しよう)。
+    \item $\mathds{Q}(\sqrt[3]{2})/{\mathds{Q}}$はガロア拡大ではない代数体の有限次拡大である(証明しよう)。
 \end{itemize}
 
 \begin{dfn}[中間体]
@@ -30,22 +30,22 @@ L=K(\alpha)=\left\{\frac{g(\alpha)}{f(\alpha)}\setmid f(x),g(x)\in K[x],\; f(\al
 \vspace{15pt}
 
 \begin{dfn}[円分体]
-    $\zeta_n\coloneqq e^{\frac{2\pi\sqrt{-1}}{n}}$を1の原始$n$乗根とする．$\mathbb{Q}$に$\zeta_n$を添加した$\mathbb{Q}(\zeta_n)$を\textbf{($n$次)円分体}という．
+    $\zeta_n\coloneqq e^{\frac{2\pi\sqrt{-1}}{n}}$を1の原始$n$乗根とする．$\mathds{Q}$に$\zeta_n$を添加した$\mathds{Q}(\zeta_n)$を\textbf{($n$次)円分体}という．
 \end{dfn}
 \begin{dfn}[オイラー関数]
-    $(\mathbb{Z}/{n\mathbb{Z}})^{\times}$を$\mathbb{Z}/{n\mathbb{Z}}$の乗法群($n$と互いに素な整数$a$の剰余類を集めたもの)とする．$\varphi\colon\mathbb{Z}^+\ni n\mapsto\# (\mathbb{Z}/{n\mathbb{Z}})^{\times}\in\mathbb{Z}^+$を\textbf{オイラー関数}と呼び，必ず$\varphi$で表すことにする．
+    $(\mathds{Z}/{n\mathds{Z}})^{\times}$を$\mathds{Z}/{n\mathds{Z}}$の乗法群($n$と互いに素な整数$a$の剰余類を集めたもの)とする．$\varphi\colon\mathds{Z}^+\ni n\mapsto\# (\mathds{Z}/{n\mathds{Z}})^{\times}\in\mathds{Z}^+$を\textbf{オイラー関数}と呼び，必ず$\varphi$で表すことにする．
 \end{dfn}
 \begin{dfn}[円分多項式]
     $\varphi(n)$次多項式\[
-    \Phi_n(x)=\prod_{k+n\mathbb{Z}\in(\mathbb{Z}/{n\mathbb{Z}})^{\times}}(x-\zeta_n^k)
-    \]は$\mathbb{Z}$上既約な$\mathbb{Z}[x]$の元であるが，これを\textbf{円分多項式}と呼ぶ．
+    \Phi_n(x)=\prod_{k+n\mathds{Z}\in(\mathds{Z}/{n\mathds{Z}})^{\times}}(x-\zeta_n^k)
+    \]は$\mathds{Z}$上既約な$\mathds{Z}[x]$の元であるが，これを\textbf{円分多項式}と呼ぶ．
 \end{dfn}
-円分多項式は，$\mathbb{Z}$上の最小多項式となることが知られている。したがって，$\Phi_n(x)=\phi_{\zeta_n}(x)$である。また，$\mathcal{O}_{\mathbb{Q}(\zeta)}=\mathbb{Z}[\zeta]$も成り立つ。
+円分多項式は，$\mathds{Z}$上の最小多項式となることが知られている。したがって，$\Phi_n(x)=\phi_{\zeta_n}(x)$である。また，$\mathcal{O}_{\mathds{Q}(\zeta)}=\mathds{Z}[\zeta]$も成り立つ。
 
 なぜ円分体なるものを定義するのだろうか?モチベーションを得るために紹介する事柄がある：
 \begin{mybox}[ガウス和]
-    $\mathbb{Q}(\sqrt{-1})=\mathbb{Q}(\zeta_4)$より，$\mathbb{Q}(\sqrt{-1})$は4次円分体である。実は，例えば$\mathbb{Q}(\sqrt{-7})$のように円分体でないものも，円分体との関係がある：$\sqrt{-7}=(\zeta_7+\zeta_7^2+\zeta_7^4)-(\zeta_7^3+\zeta_7^5+\zeta_7^6)$という等式があり，$\mathbb{Q}(\sqrt{-7})\subset\mathbb{Q}(\zeta_7)$となるのだ。このように，奇素数$p$に対して\[
-    G_p\coloneqq\sum_{i=1}^{p-1}\left(\frac{k}{p}\right)e^{\frac{2\pi\sqrt{-1}}{p}i}
+    $\mathds{Q}(\sqrt{-1})=\mathds{Q}(\zeta_4)$より，$\mathds{Q}(\sqrt{-1})$は4次円分体である。実は，例えば$\mathds{Q}(\sqrt{-7})$のように円分体でないものも，円分体との関係がある：$\sqrt{-7}=(\zeta_7+\zeta_7^2+\zeta_7^4)-(\zeta_7^3+\zeta_7^5+\zeta_7^6)$という等式があり，$\mathds{Q}(\sqrt{-7})\subset\mathds{Q}(\zeta_7)$となるのだ。このように，奇素数$p$に対して\[
+    G_p\coloneqq\sum_{j=1}^{p-1}\left(\frac{k}{p}\right)e^{\frac{2\pi\sqrt{-1}}{p}j}
     \]と定義される$G_p$を\textbf{ガウス和}という。ガウス和について，一般にも次のことが成り立つ(!)：\[
     G_p=\begin{cases*}
         \sqrt{p}&($p\equiv 1\pmod{4}$)\\
@@ -56,9 +56,9 @@ L=K(\alpha)=\left\{\frac{g(\alpha)}{f(\alpha)}\setmid f(x),g(x)\in K[x],\; f(\al
 \begin{mybox}[フェルマー予想(テイラー-ワイルスの定理)]
     1823年のMarie-Sophie Germainによる結果など，フェルマー予想の個別でないケースについての結果はあったが，「クンマーの定理」として知られる正則素数全体についてのフェルマー予想の解決には，円分体の整数環による考察が必要であった。
 \end{mybox}
-他にもモチベーションになり得る事柄は数多あるが，先を急ごう。$\mathbb{Q}(\zeta_n)/{\mathbb{Q}}$を\textbf{円分拡大}という。円分拡大について少し見ておこう：
+他にもモチベーションになり得る事柄は数多あるが，先を急ごう。$\mathds{Q}(\zeta_n)/{\mathds{Q}}$を\textbf{円分拡大}という。円分拡大について少し見ておこう：
 
-まず，定義からわかるように，$\zeta_n$の最小多項式である円分多項式$\Phi_n(x)$は，$\zeta_n^k\,(k\text{と}n\text{は互いに素})$を根に持つ。$\mathbb{Q}(\zeta_n)/{\mathbb{Q}}$はガロア拡大となり，$\#\mathrm{Gal}(\mathbb{Q}(\zeta_n)/{\mathbb{Q}})=\varphi(n)$となる。ここで，$\sigma_k\colon\zeta_n\mapsto\zeta_n^k\, (k\in (\mathbb{Z}/{n\mathbb{Z}})^{\times})$を考えると，$(\mathbb{Z}/{n\mathbb{Z}})^{\times}\ni k+n\mathbb{Z}\mapsto\sigma_k\in\mathrm{Gal}(\mathbb{Q}(\zeta_n)/{\mathbb{Q}})$は群同型である。ここで，ガロアの基本定理から$\mathbb{Q}(\zeta_n)$の部分体は，$\mathrm{Gal}(\mathbb{Q}(\zeta_n)/{\mathbb{Q}})$の部分群$H$の不変体$\mathbb{Q}(\zeta_n)_H=\{x\in\mathbb{Q}(\zeta_n)\mid\forall g\in H,\, g(x)=x\}$として与えられる。難しく思われる「中間体を求める」というタスクを，「群の構造を調べる」比較的容易な作業に落とし込めるのが，ガロア理論の強さである。
+まず，定義からわかるように，$\zeta_n$の最小多項式である円分多項式$\Phi_n(x)$は，$\zeta_n^k\,(k\text{と}n\text{は互いに素})$を根に持つ。$\mathds{Q}(\zeta_n)/{\mathds{Q}}$はガロア拡大となり，$\#\mathrm{Gal}(\mathds{Q}(\zeta_n)/{\mathds{Q}})=\varphi(n)$となる。ここで，$\sigma_k\colon\zeta_n\mapsto\zeta_n^k\, (k\in (\mathds{Z}/{n\mathds{Z}})^{\times})$を考えると，$(\mathds{Z}/{n\mathds{Z}})^{\times}\ni k+n\mathds{Z}\mapsto\sigma_k\in\mathrm{Gal}(\mathds{Q}(\zeta_n)/{\mathds{Q}})$は群同型である。ここで，ガロアの基本定理から$\mathds{Q}(\zeta_n)$の部分体は，$\mathrm{Gal}(\mathds{Q}(\zeta_n)/{\mathds{Q}})$の部分群$H$の不変体$\mathds{Q}(\zeta_n)_H=\{x\in\mathds{Q}(\zeta_n)\mid\forall g\in H,\, g(x)=x\}$として与えられる。難しく思われる「中間体を求める」というタスクを，「群の構造を調べる」比較的容易な作業に落とし込めるのが，ガロア理論の強さである。
 
 \subsection{有限体のガロア理論}
 \textbf{山頂付近の空が晴れてきた------。}
@@ -67,12 +67,12 @@ L=K(\alpha)=\left\{\frac{g(\alpha)}{f(\alpha)}\setmid f(x),g(x)\in K[x],\; f(\al
 
 ここで準備として有限体，つまり位数が有限の体，の拡大のガロア群を考えよう。まずは，有限体の基本的な性質を挙げる：
 \begin{itemize}
-    \item 位数の等しい有限体はすべて同型で，任意の有限体はある素数$p$に対する$\mathbb{F}_{p^n}$($n$はその有限体の位数に等しい)と同型である。
-    \item $q,q'$を素数のべき乗とする。$\mathbb{F}_{q'}$が$\mathbb{F}_{q}$の拡大体となるのは，$q'$が$q$で割り切れる時，かつその時に限り，体の拡大$\mathbb{F}_{q'}/{\mathbb{F}_q}$はガロア拡大である。
+    \item 位数の等しい有限体はすべて同型で，任意の有限体はある素数$p$に対する$\mathds{F}_{p^n}$($n$はその有限体の位数に等しい)と同型である。
+    \item $q,q'$を素数のべき乗とする。$\mathds{F}_{q'}$が$\mathds{F}_{q}$の拡大体となるのは，$q'$が$q$で割り切れる時，かつその時に限り，体の拡大$\mathds{F}_{q'}/{\mathds{F}_q}$はガロア拡大である。
 \end{itemize}
 ここで，久しぶりにフロベニウスが登場する\dots\dots というか，フロベニウスが待ってくれていたのだ。ただいま：
 
-$q,q'$を素数$p$のべき乗とし，$q\mid q'$とすると，ガロア拡大$\mathbb{F}_{q'}/{\mathbb{F}_q}$のガロア群$\mathrm{Gal}(\mathbb{F}_{q'}/{\mathbb{F}_q})$は，\textbf{フロベニウス自己同型}$\mathrm{Frob}_q\colon\mathbb{F}_{q'}\ni x\mapsto x^q\in\mathbb{F}_{q'}$が生成する巡回群$\langle\mathrm{Frob}_q\rangle$となることが知られている。ここで有限体のガロア群の生成元として表れたフロベニウスは，より一般の拡大について考える際にも登場する。
+$q,q'$を素数$p$のべき乗とし，$q\mid q'$とすると，ガロア拡大$\mathds{F}_{q'}/{\mathds{F}_q}$のガロア群$\mathrm{Gal}(\mathds{F}_{q'}/{\mathds{F}_q})$は，\textbf{フロベニウス自己同型}$\mathrm{Frob}_q\colon\mathds{F}_{q'}\ni x\mapsto x^q\in\mathds{F}_{q'}$が生成する巡回群$\langle\mathrm{Frob}_q\rangle$となることが知られている。ここで有限体のガロア群の生成元として表れたフロベニウスは，より一般の拡大について考える際にも登場する。
 
 \subsection{代数体の一般化に向けて}\label{ippanka}
 \textbf{もう雲を抜けたんだ------。}
@@ -104,7 +104,7 @@ $q,q'$を素数$p$のべき乗とし，$q\mid q'$とすると，ガロア拡大$
 この定理はCRTから導かれる同型$\mathcal{O}_L/{\mathfrak{p}\mathcal{O}_L}\cong\prod_{i=1}^{g}\mathcal{O}_L/{\mathfrak{P}_i^{e_i}}$を用いて，次元に注目すれば示せる(証明は簡単ではないが省略)。
 
 上記定理を用いると，「完全分解」など聞き覚えのある言葉を定義できる。この定義と先の定理を合わせれば惰性次数の意義が掴める：
-\begin{dfn}[聞き覚えのある用語+「分岐」]
+\begin{dfn}[聞き覚えのある用語 ＋「分岐」]
     \begin{itemize}
         \item $e_1,\ldots,e_g$の少なくとも1つが1より大きい時，$\mathfrak{p}$は$L$で\textbf{分岐する}，という．
         \item $e_i$がすべて1である時，$\mathfrak{p}$は$L$で\textbf{不分岐する}，という．
@@ -255,22 +255,22 @@ G/{Z_{\mathfrak{P}}}\rightarrow\{\mathfrak{P}_1,\ldots,\mathfrak{P}_g\}
 \end{dfn}
 実は，$L/K$がアーベル拡大である時，$Z_{\mathfrak{P}},\; T_{\mathfrak{P}},\; \left[\frac{L/K}{\mathfrak{P}}\right]$は，$\mathfrak{P}\mid\mathfrak{p}$に依らず定まる。そこで，それぞれ$Z_{\mathfrak{p}},\; T_{\mathfrak{p}},\; \left(\frac{L/K}{\mathfrak{p}}\right)$と表す。
 
-フロベニウス元を導入したところで，円分体における素数の分解を考えよう。1の原始$n$乗根を1つ取って$\zeta$とし，円分拡大$\mathbb{Q}(\zeta)/\mathbb{Q}$を考えると，これはアーベル拡大になることが知られている。また，$n=2m\left(2\nmid m\right)$と表せる時，$\mathbb{Q}(\zeta_n)=\mathbb{Q}(\zeta_m)$だから，$n$は奇数または4の倍数であるとして良い。この時，次の事実がある(証明省略)：
+フロベニウス元を導入したところで，円分体における素数の分解を考えよう。1の原始$n$乗根を1つ取って$\zeta$とし，円分拡大$\mathds{Q}(\zeta)/\mathds{Q}$を考えると，これはアーベル拡大になることが知られている。また，$n=2m\left(2\nmid m\right)$と表せる時，$\mathds{Q}(\zeta_n)=\mathds{Q}(\zeta_m)$だから，$n$は奇数または4の倍数であるとして良い。この時，次の事実がある(証明省略)：
 \begin{prop}
-    素数$p$が$\mathbb{Q}(\zeta)/\mathbb{Q}$で分岐することは，$p\mid n$と同値である．
+    素数$p$が$\mathds{Q}(\zeta)/\mathds{Q}$で分岐することは，$p\mid n$と同値である．
 \end{prop}
 
-不分岐の場合を考えていたから，素数$p$と$n$は互いに素とすれば十分である。
+不分岐の場合を考えていたから，素数$p$と$n$は互いに素の場合を考える。
 \begin{prop}
-    $n$と互いに素な素数$p$に関するフロベニウス元$\left(\frac{L/K}{p\mathbb{Z}}\right)$は，$\sigma_p(\zeta)=\zeta^p$という写像$\sigma_p\in\mathrm{Gal}(\mathbb{Q}(\zeta)/\mathbb{Q})$によって定まる．
+    $n$と互いに素な素数$p$に関するフロベニウス元$\left(\frac{L/K}{p\mathds{Z}}\right)$は，$\sigma_p(\zeta)=\zeta^p$という写像$\sigma_p\in\mathrm{Gal}(\mathds{Q}(\zeta)/\mathds{Q})$によって定まる．
 \end{prop}
 \begin{prf}
-    $\mathcal{O}_{\mathbb{Q}(\zeta)}=\mathbb{Z}[\zeta]$とフェルマーの小定理，そして$\mathsf{FD}$より，任意の$x=\sum a_i\zeta^i\in\mathbb{Z}[\zeta]$に対し，$\sigma_p(x)+p\mathbb{Z}[\zeta]=\sum a_i(\zeta^p)^i+p\mathbb{Z}[\zeta]=\sum a_i^p\zeta^{pi}+p\mathbb{Z}[\zeta]=(\sum a_i\zeta^i)^p+p\mathbb{Z}[\zeta]=x^p+p\mathbb{Z}[\zeta]$となる．これを満たす写像は一意に定まり，$\sigma_p$はフロベニウス元を定める．
+    $\mathcal{O}_{\mathds{Q}(\zeta)}=\mathds{Z}[\zeta]$とフェルマーの小定理，そして$\mathsf{FD}$より，任意の$x=\sum a_i\zeta^i\in\mathds{Z}[\zeta]$に対し，$\sigma_p(x)+p\mathds{Z}[\zeta]=\sum a_i(\zeta^p)^i+p\mathds{Z}[\zeta]=\sum a_i^p\zeta^{pi}+p\mathds{Z}[\zeta]=(\sum a_i\zeta^i)^p+p\mathds{Z}[\zeta]=x^p+p\mathds{Z}[\zeta]$となる．これを満たす写像は一意に定まり，$\sigma_p$はフロベニウス元を定める．
 \end{prf}
-$\sigma_p$の$\mathrm{Gal}(\mathbb{Q}(\zeta)/\mathbb{Q})$における位数が$f=\# Z_{p\mathbb{Z}}=\#\left\langle\left(\frac{L/K}{p\mathbb{Z}}\right)\right\rangle$を与えるから，$\sigma_p$の位数を求めたい。ここで，同型による対応$\mathrm{Gal}(\mathbb{Q}(\zeta)/\mathbb{Q})\ni\sigma_p\mapsto\bar{p}\in (\mathbb{Z}/n\mathbb{Z})^{\times}$があったから，$\sigma_p$の位数$f$は，$\bar{p}$の$(\mathbb{Z}/n\mathbb{Z})^{\times}$における位数に等しいことがわかり，次のようになる：
+$\sigma_p$の$\mathrm{Gal}(\mathds{Q}(\zeta)/\mathds{Q})$における位数が$f=\# Z_{p\mathds{Z}}=\#\left\langle\left(\frac{L/K}{p\mathds{Z}}\right)\right\rangle$を与えるから，$\sigma_p$の位数を求めたい。ここで，同型による対応$\mathrm{Gal}(\mathds{Q}(\zeta)/\mathds{Q})\ni\sigma_p\mapsto\bar{p}\in (\mathds{Z}/n\mathds{Z})^{\times}$があったから，$\sigma_p$の位数$f$は，$\bar{p}$の$(\mathds{Z}/n\mathds{Z})^{\times}$における位数に等しいことがわかり，次のようになる：
 \begin{thm}
     $n$と互いに素な素数$p$に対し，$p^f\equiv 1\pmod{n}$を満たす最小の正整数$f$により，$p$は\[
-    p\mathbb{Z}[\zeta]=\mathfrak{p}_1\mathfrak{p}_2\cdots\mathfrak{p}_{[\mathbb{Q}(\zeta):\mathbb{Q}]/f}=\mathfrak{p}_1\mathfrak{p}_2\cdots\mathfrak{p}_{\varphi(n)/f}
+    p\mathds{Z}[\zeta]=\mathfrak{p}_1\mathfrak{p}_2\cdots\mathfrak{p}_{[\mathds{Q}(\zeta):\mathds{Q}]/f}=\mathfrak{p}_1\mathfrak{p}_2\cdots\mathfrak{p}_{\varphi(n)/f}
     \]と分解する．
 \end{thm}
 こうして，円分体での素数の分解法則が記述できた。平方根を添加した体における素数の分解法則を直接考えた際に比べて，議論が簡潔である。フロベニウスのおかげである。元を辿れば，フロベニウス写像が準同型であることの背景に\textsf{FD}があった。類体論を前にして\textsf{FD}の存在は些末かもしれないが，\textsf{FD}がなければここまで来れなかった。中高生の習う数学で間違いとされていることを肯定することで生まれる可能性がある，ということを示したかった。
@@ -278,12 +278,12 @@ $\sigma_p$の$\mathrm{Gal}(\mathbb{Q}(\zeta)/\mathbb{Q})$における位数が$f
 円分体やフロベニウスに関連して，類体論そのものについて少し述べておこう。
 
 ガロア拡大$L/K$を考える。$\mathcal{O}_K$の素イデアル$\mathfrak{p}$が$L/K$で不分岐する時，フロベニウス元が$\mathrm{Gal}(L/K)$の元として定まることを考えると，いろいろな$\mathfrak{p}$に対してフロベニウス元が対応することで，$\mathrm{Gal}(L/K)$や$L/K$そのものの構造がわかってしまうのではないか，と考えられる。実際に，任意の$\mathrm{Gal}(L/K)$の元は，$\mathcal{O}_K$のある不分岐する素イデアル$\mathfrak{p}$に対応するフロベニウス元として表されるのだ。これを使うと，$L/K$がアーベル拡大の時，\[
-\bigoplus_{\mathfrak{p}}\mathbb{Z}\ni (n_{\mathfrak{p}})_{\mathfrak{p}}\mapsto\prod_{\mathfrak{p}}\mathrm{Frob}_{\mathfrak{p}}^{n_{\mathfrak{p}}}\in\mathrm{Gal}(L/K)
+\bigoplus_{\mathfrak{p}}\mathds{Z}\ni (n_{\mathfrak{p}})_{\mathfrak{p}}\mapsto\prod_{\mathfrak{p}}\mathrm{Frob}_{\mathfrak{p}}^{n_{\mathfrak{p}}}\in\mathrm{Gal}(L/K)
 \]という群準同型($\oplus$は(外部)直和というもの，調べてね)が全射となり，第一同型定理より，この写像の核を理解することで$\mathrm{Gal}(L/K)$の構造がわかってしまうという(まだそこまで勉強できてないから結果だけ)。また，このような写像はアルティン写像というもので，アルティンの相互法則というアルティン写像の核に関する法則があり，``$n$乗剰余の相互法則''を導くのに使ったり，類体論において大事なことが沢山わかったりするらしい。
 
 さらに，円分体については次の素晴らしい定理がある：
 \begin{thm}[クロネッカー-ウェーバーの定理]
-    $\mathbb{Q}$の任意のアーベル拡大は，ある円分体$\mathbb{Q}(\zeta)$の部分体となる．
+    $\mathds{Q}$の任意のアーベル拡大は，ある円分体$\mathds{Q}(\zeta)$の部分体となる．
 \end{thm}
 代数体の拡大を考える上で，円分体は大事な対象だったのだ。
 
